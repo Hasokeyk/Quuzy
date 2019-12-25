@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="62823538-a09f-45ef-9782-395ed3d91177" name="Quuzy" url="http://185.122.200.168">
+        <fileTransfer host="185.122.200.168" port="22168" rootFolder="/www/wwwroot/quuzy.com" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22168" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
