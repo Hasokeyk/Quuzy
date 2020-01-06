@@ -3,51 +3,20 @@
 ?>
 <section class="home">
     
-    <div class="sidebar">
-        <ul>
-            <li class="active">
-                <a href="/">
-                    <div class="icon">
-                        <i class="fad fa-home"></i>
-                    </div>
-                    <div class="text">
-                        Home
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="/instagram/">
-                    <div class="icon">
-                        <i class="fad fa-images"></i>
-                    </div>
-                    <div class="text">
-                        Last Posts
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="/instagram/">
-                    <div class="icon">
-                        <i class="fad fa-users"></i>
-                    </div>
-                    <div class="text">
-                        Last Users
-                    </div>
-                </a>
-            </li>
-        </ul>
-    </div>
+    <?php
+        include "sidebar.php";
+    ?>
 
     <div class="home-content">
 
         <div class="last-user-profiles">
 
-            <h1>Top 15 Users</h1>
+            <h1>Popular Instagram Profile</h1>
 
             <div class="users">
 
                 <?php 
-                    $users = $mysqli->query("SELECT * FROM users ORDER BY id DESC LIMIT 15");
+                    $users = $mysqli->query("SELECT * FROM users ORDER BY followedCount DESC LIMIT 15");
                     if($users->num_rows > 0){
                         while($user = $users->fetch_assoc()){
                 ?>
@@ -67,25 +36,24 @@
 
         <div class="last-posts">
 
-            <h2>Last Posts</h2>
+            <h2>Top 30 Posts</h2>
 
             <div class="posts">
                 
                 <?php
                     $posts = $mysqli->query("SELECT
-                        *
-                    FROM
-                        userposts As UP,
-                        users AS U
-                    WHERE
-                    	U.username = UP.username AND
-                        U.instaID != 0
-                    GROUP BY
-                        UP.username
-                    ORDER BY
-                        UP.id
-                    DESC
-                    LIMIT 30");
+                                                        *
+                                                    FROM
+                                                        userposts AS UP,
+                                                        users AS U
+                                                    WHERE
+                                                        U.username = UP.username AND U.instaID != 0
+                                                    GROUP BY
+                                                        UP.username
+                                                    ORDER BY
+                                                        UP.likeCount
+                                                    DESC
+                                                    LIMIT 30");
                     if($posts->num_rows > 0){
                         $ads = 0;
                         while($post = $posts->fetch_assoc()){
@@ -100,13 +68,6 @@
                         </p>
                     </div>
                     <div class="post-info">
-                        <div class="post-profile">
-                            <div class="profile-pic">
-                                <a href="/instagram/<?=$post['username']?>/">
-                                    <img src="https://quuzy.com/img/u/<?=$post['username']?>/" alt="<?=$post['username']?>">
-                                </a>
-                            </div>
-                        </div>
                         <div class="post-info-detail">
                             <ul>
                                 <li>
@@ -117,12 +78,16 @@
                                     <div class="icon"><i class="fal fa-comment"></i></div>
                                     <div class="text"><?=thousandsCurrencyFormat($post['commentCount'])?></div>
                                 </li>
+                                <li class="download-btn">
+                                    <div class="icon"><i class="fas fa-download"></i></div>
+                                    <div class="text"><a href="/img/p/<?=$post['shortcode']?>/" download="<?=$post['shortcode']?>.png">Download</a></div>
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <?php       
-                            if($ads % 6 == 0){
+                            if($ads % 9 == 0){
                 ?>
                 <div class="post ads">
                     <div class="post-img">
@@ -142,13 +107,6 @@
                         </p>
                     </div>
                     <div class="post-info">
-                        <div class="post-profile">
-                            <div class="profile-pic">
-                                <a href="/instagram/quuzy/">
-                                    <img src="https://quuzy.com/themes/quuzy/assets/img/favicons/apple-icon-114x114.png" alt="Quuzy">
-                                </a>
-                            </div>
-                        </div>
                         <div class="post-info-detail">
                             <ul>
                                 <li>

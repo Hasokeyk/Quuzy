@@ -15,7 +15,7 @@
 
 		    //$pinBot->getHttpClient()->useProxy('45.77.96.231', '8888');
 		    $someCookieValue = $pinBot->getHttpClient()->cookie('cookieName');
-		    $pinBot->getHttpClient()->setCookiesPath((__DIR__).'/cache/cookies/');
+		    $pinBot->getHttpClient()->setCookiesPath((__DIR__).'/cache/cookie/');
 		    $currentPath = $pinBot->getHttpClient()->getCookiesPath();
 
 		    if ($pinBot->auth->isLoggedIn()) {

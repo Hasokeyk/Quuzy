@@ -97,7 +97,7 @@
             ?>
                 <div  class="post">
                     <div class="post-img">
-                        <a href="/instagram/<?=$post['username']?>/"><img src="/img/p/<?=$post['shortcode']?>/" alt="<?=$post['description']?>"/></a>
+                        <img src="/img/p/<?=$post['shortcode']?>/" alt="<?=$post['description']?>"/>
                     </div>
                     <div class="post-desc" style="display:none">
                         <p>
@@ -114,6 +114,10 @@
                                 <li>
                                     <div class="icon"><i class="fal fa-comment"></i></div>
                                     <div class="text"><?=thousandsCurrencyFormat($post['commentCount'])?></div>
+                                </li>
+                                <li class="download-btn">
+                                    <div class="icon"><i class="fas fa-download"></i></div>
+                                    <div class="text"><a href="/img/p/<?=$post['shortcode']?>/" download="<?=$post['shortcode']?>.png">Download</a></div>
                                 </li>
                             </ul>
                         </div>
@@ -140,13 +144,6 @@
                         </p>
                     </div>
                     <div class="post-info">
-                        <div class="post-profile">
-                            <div class="profile-pic">
-                                <a href="/instagram/quuzy/">
-                                    <img src="https://quuzy.com/themes/quuzy/assets/img/favicons/apple-icon-114x114.png" alt="Quuzy">
-                                </a>
-                            </div>
-                        </div>
                         <div class="post-info-detail">
                             <ul>
                                 <li>

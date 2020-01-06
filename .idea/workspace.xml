@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="28021814-0a6f-478b-a13c-d93ed8275080" name="Default Changelist" comment="" />
+    <list default="true" id="28021814-0a6f-478b-a13c-d93ed8275080" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy/last-posts.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy/sidebar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cron.php" beforeDir="false" afterPath="$PROJECT_DIR$/cron.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img.php" beforeDir="false" afterPath="$PROJECT_DIR$/img.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/keybWork.php" beforeDir="false" afterPath="$PROJECT_DIR$/keyb/keybWork.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/robots.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/quuzy/assets/css/quuzy.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/quuzy/assets/css/quuzy.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/quuzy/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/themes/quuzy/home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/quuzy/instagram.php" beforeDir="false" afterPath="$PROJECT_DIR$/themes/quuzy/instagram.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/quuzy/profile-detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/themes/quuzy/profile-detail.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,6 +40,9 @@
     <expand />
     <select />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
       <path value="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot" />
@@ -41,6 +57,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
@@ -80,6 +97,7 @@
       <workItem from="1576875368741" duration="7609000" />
       <workItem from="1576925720093" duration="2510000" />
       <workItem from="1577302374137" duration="10629000" />
+      <workItem from="1578328124080" duration="10812000" />
     </task>
     <servers />
   </component>
@@ -91,10 +109,18 @@
       <screen x="66" y="0" width="1854" height="1080" />
     </state>
     <state x="756" y="343" key="#com.intellij.fileTypes.FileTypeChooser/66.0.1854.1080/1982.2.1858.1080@66.0.1854.1080" timestamp="1577307891309" />
-    <state x="827" y="464" key="NewPhpFileDialog" timestamp="1577304747089">
+    <state x="827" y="464" key="NewPhpFileDialog" timestamp="1578337512798">
       <screen x="66" y="0" width="1854" height="1080" />
     </state>
-    <state x="827" y="464" key="NewPhpFileDialog/66.0.1854.1080/1982.2.1858.1080@66.0.1854.1080" timestamp="1577304747089" />
+    <state x="827" y="464" key="NewPhpFileDialog/66.0.1854.1080/1982.2.1858.1080@66.0.1854.1080" timestamp="1578337512798" />
+    <state x="585" y="273" key="Vcs.Push.Dialog.v2" timestamp="1578334219005">
+      <screen x="66" y="0" width="1854" height="1080" />
+    </state>
+    <state x="585" y="273" key="Vcs.Push.Dialog.v2/66.0.1854.1080/1982.2.1858.1080@66.0.1854.1080" timestamp="1578334219005" />
+    <state x="638" y="155" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1578337681250">
+      <screen x="66" y="0" width="1854" height="1080" />
+    </state>
+    <state x="638" y="155" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/66.0.1854.1080/1982.2.1858.1080@66.0.1854.1080" timestamp="1578337681250" />
     <state x="789" y="278" key="webDeployment.PermissionsDialog.Tabs" timestamp="1577309565301">
       <screen x="66" y="0" width="1854" height="1080" />
     </state>

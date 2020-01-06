@@ -6,6 +6,7 @@
 
 	if(!isset($_GET['test'])){
 		header('Content-Type: image/jpeg');
+		header('Content-Disposition: inline; filename="'.$_GET['shortcode'].'.jpg"');
 	}
 
 	if(isset($_GET['shortcode']) and !empty($_GET['shortcode'])){

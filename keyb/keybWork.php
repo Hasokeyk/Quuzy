@@ -28,6 +28,7 @@
                 require THEMEDIR.'sitemap.php';
                 exit;
             }else if($urlParse['fullLink'] == '/'){
+	            $this->pageInfo['template'] = 'home';
                 goto nonControl;
             }else if(!isset($urlParse['subFolder']) and empty($urlParse['subFolder'])){
                 $sql = "SELECT * FROM seolinks WHERE url = '".$urlParse['subFolder']."'";
@@ -38,12 +39,11 @@
             }
 
             //VERİTABANINDA VAR MI?
-            
             $ask = $mysqli->query($sql);
             if($ask->num_rows > 0){
-                $info       = $ask->fetch_assoc();
-                $this->pageInfo = $info;
-                $this->page =  $info['template'];
+                $info               = $ask->fetch_assoc();
+                $this->pageInfo     = $info;
+                $this->page         = $info['template'];
             }else{
                 $this->page = '404';
             }
@@ -55,18 +55,22 @@
                 require THEMEDIR.'404.php';
                 exit;
 			}else{
-				$htmlName = md5($_SERVER['REQUEST_URI']).'.html';
-				if(file_exists(ROOT.'/cache/html/'.$htmlName)){
-					echo file_get_contents(ROOT.'/cache/html/'.$htmlName);
-					exit;
+				if($this->page != '404'){
+					$htmlName = md5($_SERVER['REQUEST_URI']).'.html';
+					if(file_exists(ROOT.'/cache/html/'.$htmlName)){
+						echo file_get_contents(ROOT.'/cache/html/'.$htmlName);
+						exit;
+					}else{
+						ob_start();
+						require THEMEDIR.$this->page.'.php';
+						$html = ob_get_contents();
+						ob_clean();
+						file_put_contents(ROOT.'/cache/html/'.$htmlName, $html);
+						echo $html;
+						exit;
+					}
 				}else{
-					ob_start();
 					require THEMEDIR.$this->page.'.php';
-					$html = ob_get_contents();
-					ob_clean();
-					file_put_contents(ROOT.'/cache/html/'.$htmlName, $html);
-					echo $html;
-					exit;
 				}
 			}
 			//SAYFANIN YOK İSE 404 DÜŞSÜN
