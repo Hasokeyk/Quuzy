@@ -5,6 +5,14 @@ jQuery(function($){
 
     //404 SAYFASI ÜYE KONTROL
     if(pageType == '404' && username != '' && username != 'quuzy'){
+
+        $('.big-text').html('(<span class="counter">1</span>) Please Wait... Loading Profile..');
+
+        var i = 1;
+        setInterval(function () {
+            $('.big-text .counter').text(i++);
+        },1000)
+
         try {
             $.getJSON('https://www.instagram.com/'+username+'/?__a=1',function(user){
                 $.post('/ajax/user',{user:JSON.stringify(user),type:'link',action:'userSave'},function(userInfo){
@@ -17,7 +25,6 @@ jQuery(function($){
         } catch (error) {
             console.log('user not found');
         }
-
     }
     //404 SAYFASI ÜYE KONTROL
 

@@ -3,7 +3,23 @@
 
     require THEMEDIR."header.php";
 ?>
-404
+
+    <section class="page-404">
+
+        <div class="big-like">
+            404
+        </div>
+
+        <div class="big-text">
+            NOT FOUND
+        </div>
+
+        <div class="big-button">
+            <a href="/">HOME</a>
+        </div>
+
+    </section>
+
 <?php 
     require THEMEDIR."footer.php";
 ?>

@@ -32,8 +32,8 @@
 			    die();
 		    }
 
-		    //$error = $pinBot->getLastError();
-		    //echo $error;
+		    $error = $pinBot->getLastError();
+		    echo $error;
 
 		    if ($pinBot->user->isBanned()) {
 			    echo "Account has been banned!\n";
@@ -42,6 +42,7 @@
 
 		    $nonPinPost = $mysqli->query("SELECT * FROM users AS U,userposts AS UP WHERE U.username = UP.username AND U.pintBoardID != 0 AND UP.pinID = 0 LIMIT 10");
 		    if($nonPinPost->num_rows > 0){
+		    	echo $nonPinPost->num_rows;
 			    while($p = $nonPinPost->fetch_assoc()){
 
 				    $pin = $pinBot->pins->create(

@@ -2,18 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="28021814-0a6f-478b-a13c-d93ed8275080" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/quuzy/last-posts.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/quuzy/sidebar.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cron.php" beforeDir="false" afterPath="$PROJECT_DIR$/cron.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img.php" beforeDir="false" afterPath="$PROJECT_DIR$/img.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keyb/keybWork.php" beforeDir="false" afterPath="$PROJECT_DIR$/keyb/keybWork.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/robots.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/quuzy/404.php" beforeDir="false" afterPath="$PROJECT_DIR$/themes/quuzy/404.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/quuzy/assets/css/quuzy.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/quuzy/assets/css/quuzy.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/quuzy/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/themes/quuzy/home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/quuzy/instagram.php" beforeDir="false" afterPath="$PROJECT_DIR$/themes/quuzy/instagram.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/quuzy/profile-detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/themes/quuzy/profile-detail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/quuzy/assets/js/quuzy.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/quuzy/assets/js/quuzy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/quuzy/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/themes/quuzy/footer.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,6 +92,9 @@
       <workItem from="1576925720093" duration="2510000" />
       <workItem from="1577302374137" duration="10629000" />
       <workItem from="1578328124080" duration="10812000" />
+      <workItem from="1578347763520" duration="5000" />
+      <workItem from="1578568336198" duration="874000" />
+      <workItem from="1578668943179" duration="3426000" />
     </task>
     <servers />
   </component>
@@ -121,6 +118,10 @@
       <screen x="66" y="0" width="1854" height="1080" />
     </state>
     <state x="638" y="155" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/66.0.1854.1080/1982.2.1858.1080@66.0.1854.1080" timestamp="1578337681250" />
+    <state x="649" y="250" key="run.anything.popup" timestamp="1578670769432">
+      <screen x="66" y="0" width="1854" height="1080" />
+    </state>
+    <state x="649" y="250" key="run.anything.popup/66.0.1854.1080/1982.2.1858.1080@66.0.1854.1080" timestamp="1578670769432" />
     <state x="789" y="278" key="webDeployment.PermissionsDialog.Tabs" timestamp="1577309565301">
       <screen x="66" y="0" width="1854" height="1080" />
     </state>

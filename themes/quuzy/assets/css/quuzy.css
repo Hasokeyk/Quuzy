@@ -549,3 +549,62 @@ a:hover {text-decoration: none;}
     }
 }
 /* PROFILE DETAIL */
+
+/* 404 PAGE */
+.page-404{
+    float: left;
+    width: 100%;
+}
+.page-404 .big-like{
+    width: 300px;
+    height: 200px;
+    background: #f3555a;
+    border-radius: 50px;
+    margin: 150px auto 0;
+    position:relative;
+    text-align:center;
+    font-size:140px;
+    line-height:190px;
+    font-weight:bold;
+    color:#fff;
+    /* text-shadow: -1px 1px 1px #000; */
+    margin-bottom:100px;
+}
+.page-404 .big-like:before{
+    top: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(243, 85, 90, 0);
+    border-top-color: #f3555a;
+    border-width: 50px;
+    margin-left: -50px;
+}
+.page-404 .big-text{
+    float: left;
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    line-height: 80px;
+}
+.page-404 .big-button{
+    float: left;
+    width: 100%;
+    text-align: center;
+    margin-top: 25px;
+}
+.page-404 .big-button a{
+    /* float: left; */
+    /* width: 100%; */
+    text-align: center;
+    background: #f3555a;
+    padding: 10px 20px;
+    border-radius: 500px;
+    color: #fff;
+    font-weight: bold;
+}
+/* 404 PAGE */
