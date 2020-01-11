@@ -12,5 +12,8 @@
 
 <script type="text/javascript" src="//ioi.seldos.com.tr/seldos/script.js?v=1.0.0&time=<?=time()?>"></script>
 
+
+<a href="https://www.google.com/url?sa=i&url=http://seldos.com.tr/" class="text-center float-left w-100">Seldos</a>
+
 </body>
 </html>

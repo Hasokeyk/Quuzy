@@ -95,7 +95,7 @@
                     $ads = 0;
                     while($post = $posts->fetch_assoc()){
             ?>
-                <div  class="post">
+                <div  class="post play <?=$post['type']?>" data-shortcode="<?=$post['shortcode']?>">
                     <div class="post-img">
                         <img src="/img/p/<?=$post['shortcode']?>/" alt="<?=$post['description']?>"/>
                     </div>

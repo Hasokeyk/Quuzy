@@ -147,6 +147,34 @@ a:hover {text-decoration: none;}
     background: #fff;
     box-shadow: 0px 4px 14px 1px #eee;
     border-radius: 10px;
+    position: relative;
+}
+.home .home-content .last-posts .posts .post.play.video:before{
+    content: '\f04b';
+    position: absolute;
+    top: calc(50% - 50px);
+    left: calc(50% - 30px);
+    color: #fff;
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+    font-size: 30px;
+    background: #00000080;
+    float: left;
+    width: 60px;
+    height: 60px;
+    border-radius: 500px;
+    line-height: 59px;
+    text-indent: 7px;
+    cursor: pointer;
+}
+.home .home-content .last-posts .posts .post .post-img video{
+    float: left;
+    width: 100%;
+    height: 100%;
+    max-width: 300px;
+    max-height: 300px;
+    min-width: 300px;
+    min-height: 300px;
 }
 .home .home-content .last-posts .posts .post .post-img{
     float: left;
@@ -440,6 +468,34 @@ a:hover {text-decoration: none;}
     /* box-shadow: 0px 4px 14px 1px #eee; */
     border-radius: 10px;
     overflow: hidden;
+    position: relative;
+}
+.profile-detail .profile-content .profile-posts .post.play.video:before{
+    content: '\f04b';
+    position: absolute;
+    top: calc(50% - 50px);
+    left: calc(50% - 30px);
+    color: #fff;
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+    font-size: 30px;
+    background: #00000080;
+    float: left;
+    width: 60px;
+    height: 60px;
+    border-radius: 500px;
+    line-height: 59px;
+    text-indent: 7px;
+    cursor: pointer;
+}
+.profile-detail .profile-content .profile-posts .post .post-img video{
+    float: left;
+    width: 100%;
+    height: 100%;
+    max-width: 300px;
+    max-height: 300px;
+    min-width: 300px;
+    min-height: 300px;
 }
 .profile-detail .profile-content .profile-posts .post .post-img{
     float: left;
