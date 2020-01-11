@@ -300,6 +300,10 @@ a:hover {text-decoration: none;}
     .home .home-content .last-user-profiles .users {
         max-width: 288px;
     }
+    .home .home-content .last-posts .posts .post .post-img video{
+        max-width: 320px;
+        max-height: 320px;
+    }
 }
 /* HOME */
 
@@ -602,6 +606,10 @@ a:hover {text-decoration: none;}
     .profile-detail .profile-content .profile-posts .post .post-img img{
         float: left;
         width: 100%;
+    }
+    .profile-detail .profile-content .profile-posts .post .post-img video{
+        max-width: 320px;
+        max-height: 320px;
     }
 }
 /* PROFILE DETAIL */
