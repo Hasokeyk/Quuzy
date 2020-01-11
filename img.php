@@ -5,8 +5,8 @@
 	require ROOT."/keyb/functions.php";
 
 	if(!isset($_GET['test'])){
-		header('Content-Type: image/jpeg');
-		header('Content-Disposition: inline; filename="'.$_GET['shortcode'].'.jpg"');
+		//header('Content-Type: image/jpeg');
+		//header('Content-Disposition: inline; filename="'.$_GET['shortcode'].'.jpg"');
 	}
 
 	if(isset($_GET['shortcode']) and !empty($_GET['shortcode'])){
@@ -63,6 +63,19 @@
 				if($html['http_code'] == 200){
 					$imageLink = json_decode($html['content']);
 					$imageLink = $imageLink->graphql->shortcode_media->display_url;
+				}else if($html['http_code'] == 404){
+
+					$ask = $mysqli->query("SELECT * FROM userposts WHERE shortcode = '".$shortcode."'");
+					if($ask->num_rows > 0){
+						$user = $ask->fetch_assoc();
+						$htmlName = md5('/instagram/'.$user['username'].'/').'.html';
+						@unlink(ROOT.'/cache/html/'.$htmlName);
+						@unlink(ROOT.'/cache/html/'.md5('/').'.html');
+
+						$mysqli->query("DELETE FROM userposts WHERE shortcode = '".$shortcode."'");
+					}
+					echo file_get_contents(THEMEDIR.'/assets/img/default.jpg');
+					exit;
 				}else{
 					echo file_get_contents(THEMEDIR.'/assets/img/default.jpg');
 					exit;

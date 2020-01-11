@@ -44,11 +44,11 @@
                                                     WHERE
                                                         U.username = UP.username AND
                                                         U.instaID != 0 AND
-                                                        UP.type = 'video' 
+                                                        UP.type = 'video'
                                                     GROUP BY
                                                         UP.username
                                                     ORDER BY
-                                                        UP.likeCount
+                                                        UP.commentCount
                                                     DESC
                                                     LIMIT 10");
 				    if($posts->num_rows > 0){
