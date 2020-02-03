@@ -7,7 +7,7 @@
     <title><?=$this->seoTitle()?></title>
 
     <meta name="description" content="<?=$this->seoDesc()?>"/>
-    <link rel="canonical" href="https://quuzy.com" />
+    <link rel="canonical" href="<?=$this->seoCanonical($urlParse)?>" />
 
     <meta property="og:locale" content="en" />
     <meta property="og:type" content="website" />
@@ -44,17 +44,19 @@
 
     <!--<script src="//quuzy.com/pwabuilder-sw-register.js"></script>-->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="<?=THEMEPATH?>assets/js/jquery.fancybox.min.js"></script>
     <script src="<?=THEMEPATH?>assets/js/quuzy.js"></script>
 
 
-    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=auto" rel="stylesheet">
     <link href="<?=THEMEPATH?>assets/css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="<?=THEMEPATH?>assets/css/jquery.fancybox.min.css" rel="stylesheet">
     <link href="<?=THEMEPATH?>assets/css/quuzy.css" rel="stylesheet">
-    <?php 
+    <?php
         $urlParse = $this->urlParse();
         //print_r($urlParse);
     ?>
-    
-    <!--<script data-ad-client="ca-pub-9896875941850273" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>-->
+
+    <script data-ad-client="ca-pub-9896875941850273" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 <body data-username="<?=$urlParse['subFolder']??'quuzy'?>" data-page-type="<?=$this->page?>">

@@ -136,7 +136,7 @@ a:hover {text-decoration: none;}
     display: grid;
     grid-gap: 3em;
     grid-template-columns: repeat( auto-fill, minmax( 300px, 300px ) );
-    grid-column-gap: 5%;
+    grid-column-gap: 49px;
     /* grid-row-gap: 3em; */
 }
 .home .home-content .last-posts .posts .post{
@@ -460,7 +460,7 @@ a:hover {text-decoration: none;}
     display: grid;
     grid-gap: 3em;
     grid-template-columns: repeat( auto-fill, minmax( 300px, 300px ) );
-    grid-column-gap: 5%;
+    grid-column-gap: 49px;
     /* grid-row-gap: 3em; */
 }
 .profile-detail .profile-content .profile-posts .post{

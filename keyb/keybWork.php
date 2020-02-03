@@ -183,4 +183,14 @@
             }
             return $outPut;
         }
+        function seoCanonical($urlParse){
+
+        	$domain = SITENAME.'/';
+        	if(isset($urlParse['subFolder']) and  !empty($urlParse['subFolder'])){
+        		$domain .= $urlParse['folder'].'/'.$urlParse['subFolder'].'/';
+	        }else if(isset($urlParse['folder']) and  !empty($urlParse['folder'])){
+		        $domain .= $urlParse['folder'].'/';
+	        }
+        	echo $domain;
+        }
     }

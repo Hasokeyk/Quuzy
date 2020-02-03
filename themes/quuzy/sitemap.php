@@ -15,7 +15,7 @@
 	$seoLink = $mysqli->query("SELECT fullLink,time FROM seolinks WHERE status = 1 AND template != 'post-detail' ORDER BY id DESC");
     if($seoLink->num_rows > 0){
         while($link = $seoLink->fetch_assoc()){
-            $tamLink = SITENAME.$link['fullLink'];
+            $tamLink = SITENAME.$link['fullLink'].'/';
             $linkler[] = [
 				'link' => $tamLink,
 				'time' => $link['time'],

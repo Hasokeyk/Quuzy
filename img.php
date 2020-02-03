@@ -5,8 +5,9 @@
 	require ROOT."/keyb/functions.php";
 
 	if(!isset($_GET['test'])){
-		//header('Content-Type: image/jpeg');
-		//header('Content-Disposition: inline; filename="'.$_GET['shortcode'].'.jpg"');
+		header('Cache-Control: max-age=31536000');
+		header('Content-Type: image/jpeg');
+		header('Content-Disposition: inline; filename="'.$_GET['shortcode'].'.jpg"');
 	}
 
 	if(isset($_GET['shortcode']) and !empty($_GET['shortcode'])){
@@ -61,8 +62,14 @@
 					exit;
 				}
 				if($html['http_code'] == 200){
-					$imageLink = json_decode($html['content']);
-					$imageLink = $imageLink->graphql->shortcode_media->display_url;
+					if(!stristr($html['content'],'<!DOCTYPE html>')){
+						$imageLink = json_decode($html['content']);
+						$imageLink = $imageLink->graphql->shortcode_media->display_url;
+					}else{
+						$mysqli->query("DELETE FROM userposts WHERE shortcode = '".$shortcode."'");
+						@unlink(ROOT.'/cache/img/'.$shortcode);
+						exit;
+					}
 				}else if($html['http_code'] == 404){
 
 					$ask = $mysqli->query("SELECT * FROM userposts WHERE shortcode = '".$shortcode."'");

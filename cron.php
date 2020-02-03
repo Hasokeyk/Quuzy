@@ -40,17 +40,19 @@
 			    die();
 		    }
 
-		    $nonPinPost = $mysqli->query("SELECT * FROM users AS U,userposts AS UP WHERE U.username = UP.username AND U.pintBoardID != 0 AND UP.pinID = 0 LIMIT 10");
+		    $nonPinPost = $mysqli->query("SELECT * FROM users AS U,userposts AS UP WHERE U.username = UP.username AND U.pintBoardID != 0 AND UP.pinID = 0 LIMIT 30");
 		    if($nonPinPost->num_rows > 0){
-		    	echo $nonPinPost->num_rows;
+		    	//echo $nonPinPost->num_rows;
 			    while($p = $nonPinPost->fetch_assoc()){
-
+			    	echo $p['pintBoardID'];
+			    	$desc = mb_convert_encoding(substr($p['description'],0,400),'utf8');
+			    	exit;
 				    $pin = $pinBot->pins->create(
 					    'https://quuzy.com/img/p/'.$p['shortcode'].'/',
 					    $p['pintBoardID'],
-					    substr($p['description'],0,400),
+					    $desc,
 					    'https://quuzy.com/instagram/'.$p['username'].'/',
-					    $p['username'],
+					    $p['username']
                 );
 				    sleep(1);
 				    if($pin !== false){
@@ -99,5 +101,45 @@
 	    		unlink($html);
 		    }
 			echo count($htmls).' Html Cache Silindi'."<br> \n";
+	    }
+	    else if($_GET['action'] == 'test'){
+
+		    $pinBot = PinterestBot::create();
+		    $result = $pinBot->auth->login('quuzy@setiabudihitz.com', '48186hasokeyk',true);
+
+		    //$pinBot->getHttpClient()->useProxy('45.77.96.231', '8888');
+		    $someCookieValue = $pinBot->getHttpClient()->cookie('cookieName');
+		    $pinBot->getHttpClient()->setCookiesPath((__DIR__).'/cache/cookie/');
+		    $currentPath = $pinBot->getHttpClient()->getCookiesPath();
+
+		    if ($pinBot->auth->isLoggedIn()) {
+			    echo 'Sorun yok <br>';
+		    }else{
+			    echo 3;
+			    $cookies = $pinBot->getHttpClient()->cookies();
+			    //$pinBot->getHttpClient()->removeCookies();
+			    print_r($cookies);
+		    }
+
+		    if (!$result) {
+			    echo $pinBot->getLastError();
+			    die();
+		    }
+
+		    $error = $pinBot->getLastError();
+		    echo $error;
+
+		    if ($pinBot->user->isBanned()) {
+			    echo "Account has been banned!\n";
+			    die();
+		    }
+
+		    //$boards = $pinBot->boards->forUser('anecuza_621');
+		    $boards = $pinBot->pins
+		        ->search('cats')
+		        ->take(100)
+		        ->toArray();
+		    print_r($boards);
+
 	    }
     }

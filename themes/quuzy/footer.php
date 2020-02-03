@@ -14,6 +14,7 @@
 
 
 <a href="https://www.google.com/url?sa=i&url=http://seldos.com.tr/" class="text-center float-left w-100">Seldos</a>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 </body>
 </html>

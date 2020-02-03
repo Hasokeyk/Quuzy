@@ -2,6 +2,7 @@
     require THEMEDIR."header.php";
 
     $userInfo = $mysqli->query("SELECT * FROM users WHERE username = '".$urlParse['subFolder']."'")->fetch_assoc();
+    $adsLimit = 4;
 
 ?>
 
@@ -87,7 +88,7 @@
 
     <div class="profile-content">
         <div class="profile-posts">
-            <h1><?=$userInfo['fullName']?>'s Posts</h1>
+            <h1><?=$userInfo['fullName']??$userInfo['username']?>'s Posts</h1>
             <div class="posts">
             <?php
                 $posts = $mysqli->query("SELECT * FROM userposts WHERE username='".$urlParse['subFolder']."' ORDER BY id DESC");
@@ -97,7 +98,19 @@
             ?>
                 <div  class="post play <?=$post['type']?>" data-shortcode="<?=$post['shortcode']?>">
                     <div class="post-img">
+                        <?php
+                            if($post['type'] == 'photo'){
+                        ?>
+                        <a href="/img/p/<?=$post['shortcode']?>/" data-fancybox="gallery">
+                            <img src="/img/p/<?=$post['shortcode']?>/" alt="<?=$post['description']?>"/>
+                        </a>
+                        <?php
+                            }else{
+                        ?>
                         <img src="/img/p/<?=$post['shortcode']?>/" alt="<?=$post['description']?>"/>
+                        <?php
+                            }
+                        ?>
                     </div>
                     <div class="post-desc" style="display:none">
                         <p>
@@ -124,16 +137,15 @@
                     </div>
                 </div>
             <?php
-                        if($ads % 6 == 0){
+                        if($ads % 6 == 0 and $ads <= $adsLimit){
             ?>
                 <div class="post ads">
                     <div class="post-img">
-                        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                        <!-- Quuzy - 300 -->
+                        <!-- Profile Detay - 300*300 -->
                         <ins class="adsbygoogle"
-                            style="display:inline-block;width:300px;height:300px;max-height:300px;"
-                            data-ad-client="ca-pub-9896875941850273"
-                            data-ad-slot="3060216022"></ins>
+                             style="display:inline-block;width:300px;height:300px"
+                             data-ad-client="ca-pub-9896875941850273"
+                             data-ad-slot="6237119990"></ins>
                         <script>
                             (adsbygoogle = window.adsbygoogle || []).push({});
                         </script>
@@ -161,6 +173,7 @@
             <?php
                         }
                         $ads++;
+	                    $adsLimit++;
                     }
                 }
             ?>

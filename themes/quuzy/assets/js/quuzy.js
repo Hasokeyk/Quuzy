@@ -14,7 +14,7 @@ jQuery(function($){
         },1000)
 
         try {
-            $.getJSON('https://www.instagram.com/'+username+'/?__a=1',function(user){
+            $.getJSON('https://www.instagram.com/'+username+'?__a=1',function(user){
                 $.post('/ajax/user',{user:JSON.stringify(user),type:'link',action:'userSave'},function(userInfo){
                     var json = JSON.parse(userInfo);
                     if(json.status == 'success'){
@@ -31,7 +31,7 @@ jQuery(function($){
     //PROFİLE DETAY
     if(pageType == 'profile-detail' && username != '' && username != 'quuzy'){
         try {
-            $.getJSON('https://www.instagram.com/'+username+'/?__a=1',function(user){
+            $.getJSON('https://www.instagram.com/'+username+'?__a=1',function(user){
                 
                 
                 //<div class="post" style="position: absolute; left: 0px; top: 0px;">
@@ -64,7 +64,7 @@ jQuery(function($){
             var href = $(e).attr('href');
             var username = regex.exec(href);
 
-            $.getJSON('https://www.instagram.com/'+username[1]+'/?__a=1',function(user){
+            $.getJSON('https://www.instagram.com/'+username[1]+'?__a=1',function(user){
                 $('.last-user-profiles .users a:eq('+i+') img').attr('src',user.graphql.user.profile_pic_url_hd);
 
                 //$.post('/ajax/user',{user:JSON.stringify(user),type:'link',action:'userPostSave'},function(userInfo){
@@ -90,7 +90,7 @@ jQuery(function($){
             $(this).get(0).pause();
         });
 
-        $.getJSON('https://www.instagram.com/p/'+shortcode+'/?__a=1',function(post){
+        $.getJSON('https://www.instagram.com/p/'+shortcode+'?__a=1',function(post){
 
             var videoUrl = post.graphql.shortcode_media.video_url;
             $(' .post-img',postImg).html('<video autoplay type="video/mp4" src="'+videoUrl+'" controls="true"></video>');
@@ -99,4 +99,8 @@ jQuery(function($){
 
     })
     //HOME PAGE VIDEO PLAY
+
+    //LIGHTBOX
+    $('.post.photo a').fancybox();
+    //LIGHTBOX
 });

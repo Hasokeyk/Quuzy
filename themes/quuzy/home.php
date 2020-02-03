@@ -18,7 +18,7 @@
                     if($users->num_rows > 0){
                         while($user = $users->fetch_assoc()){
                 ?>
-                <a href="/instagram/<?=$user['username']?>" class="user">
+                <a href="/instagram/<?=$user['username']?>/" class="user">
                     <div class="user-circle">
                         <img src="https://quuzy.com/img/u/<?=$user['username']?>/" alt="<?=$user['fullName']?>">
                     </div>
@@ -33,7 +33,7 @@
 
         <!--VIDEO POSTS-->
         <div class="last-posts">
-            <h2>Top 10 Video Posts</h2>
+            <h2>Last 10 Video Posts</h2>
             <div class="posts">
 			    <?php
 				    $posts = $mysqli->query("SELECT
@@ -48,7 +48,7 @@
                                                     GROUP BY
                                                         UP.username
                                                     ORDER BY
-                                                        UP.commentCount
+                                                        UP.id
                                                     DESC
                                                     LIMIT 10");
 				    if($posts->num_rows > 0){
@@ -88,12 +88,11 @@
 							    ?>
                                 <div class="post ads">
                                     <div class="post-img">
-                                        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                                        <!-- Quuzy - 300 -->
+                                        <!-- Profile Detay - 300*300 -->
                                         <ins class="adsbygoogle"
-                                             style="display:inline-block;width:300px;height:300px;max-height:300px;"
+                                             style="display:inline-block;width:300px;height:300px"
                                              data-ad-client="ca-pub-9896875941850273"
-                                             data-ad-slot="3060216022"></ins>
+                                             data-ad-slot="6237119990"></ins>
                                         <script>
                                             (adsbygoogle = window.adsbygoogle || []).push({});
                                         </script>
@@ -129,7 +128,7 @@
         <!--VIDEO POSTS-->
 
         <div class="last-posts">
-            <h2>Top 30 Posts</h2>
+            <h2>Last 30 Posts</h2>
             <div class="posts">
                 <?php
                     $posts = $mysqli->query("SELECT
@@ -138,11 +137,13 @@
                                                         userposts AS UP,
                                                         users AS U
                                                     WHERE
-                                                        U.username = UP.username AND U.instaID != 0
+                                                        U.username = UP.username AND
+                                                        U.instaID != 0 AND
+                                                        UP.type != 'video' 
                                                     GROUP BY
                                                         UP.username
                                                     ORDER BY
-                                                        UP.likeCount
+                                                        UP.id
                                                     DESC
                                                     LIMIT 30");
                     if($posts->num_rows > 0){
@@ -182,12 +183,11 @@
                 ?>
                 <div class="post ads">
                     <div class="post-img">
-                        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                        <!-- Quuzy - 300 -->
+                        <!-- Profile Detay - 300*300 -->
                         <ins class="adsbygoogle"
-                            style="display:inline-block;width:300px;height:300px;max-height:300px;"
-                            data-ad-client="ca-pub-9896875941850273"
-                            data-ad-slot="3060216022"></ins>
+                             style="display:inline-block;width:300px;height:300px"
+                             data-ad-client="ca-pub-9896875941850273"
+                             data-ad-slot="6237119990"></ins>
                         <script>
                             (adsbygoogle = window.adsbygoogle || []).push({});
                         </script>
