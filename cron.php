@@ -40,13 +40,29 @@
 			    die();
 		    }
 
-		    $nonPinPost = $mysqli->query("SELECT * FROM users AS U,userposts AS UP WHERE U.username = UP.username AND U.pintBoardID != 0 AND UP.pinID = 0 LIMIT 30");
+		    $nonPinPost = $mysqli->query("SELECT * FROM users AS U,userposts AS UP WHERE U.username = UP.username AND U.pintBoardID != 0 AND UP.pinID = 0 LIMIT 20");
 		    if($nonPinPost->num_rows > 0){
 		    	//echo $nonPinPost->num_rows;
 			    while($p = $nonPinPost->fetch_assoc()){
-			    	echo $p['pintBoardID'];
-			    	$desc = mb_convert_encoding(substr($p['description'],0,400),'utf8');
-			    	exit;
+			    	//$desc = mb_convert_encoding(substr($p['description'],0,400),'utf8');
+				    $desc = '#photographytips
+#inspiredpictures
+#picturestumblr
+#tumblrphoto
+#instagramtips
+#instagramlive
+#instagramname
+#instagrampost
+#instagramlove
+#instagrampictures
+#beautyinstagram
+#goodinstagram
+#funnyinstagram
+#loveinstagram
+#love
+#background
+#Wallpaper
+#beautiful';
 				    $pin = $pinBot->pins->create(
 					    'https://quuzy.com/img/p/'.$p['shortcode'].'/',
 					    $p['pintBoardID'],
