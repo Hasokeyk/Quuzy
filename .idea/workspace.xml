@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="28021814-0a6f-478b-a13c-d93ed8275080" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cron.php" beforeDir="false" afterPath="$PROJECT_DIR$/cron.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/quuzy/assets/js/quuzy.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/quuzy/assets/js/quuzy.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,6 +100,7 @@
       <workItem from="1579893334372" duration="2244000" />
       <workItem from="1580684371608" duration="4003000" />
       <workItem from="1580845737631" duration="1501000" />
+      <workItem from="1580924830570" duration="913000" />
     </task>
     <servers />
   </component>

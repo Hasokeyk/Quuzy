@@ -101,6 +101,6 @@ jQuery(function($){
     //HOME PAGE VIDEO PLAY
 
     //LIGHTBOX
-    $('.post.photo a').fancybox();
+    $('.post.photo .post-img a').fancybox();
     //LIGHTBOX
 });
