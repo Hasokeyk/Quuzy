@@ -23,7 +23,7 @@
         }
     }
     
-    $sayfala = 5000;
+    $sayfala = 1000;
 	$toplam = ceil(count($linkler)/$sayfala);
 	$bugun = time();
     

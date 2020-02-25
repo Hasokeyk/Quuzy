@@ -87,6 +87,31 @@
     </div>
 
     <div class="profile-content">
+
+        <!--USER PROFILES-->
+        <div class="last-user-profiles">
+            <h1>Similar Instagram Profiles</h1>
+            <div class="users">
+			    <?php
+				    $users = $mysqli->query("SELECT * FROM users ORDER BY RAND() LIMIT 15");
+				    $similarProfil = [];
+				    if($users->num_rows > 0){
+					    while($user = $users->fetch_assoc()){
+						    $similarProfil[] = $user;
+                    ?>
+                    <a href="/instagram/<?=$user['username']?>/" class="user">
+                        <div class="user-circle">
+                            <img src="https://quuzy.com/img/u/<?=$user['username']?>/" alt="<?=$user['fullName']?>">
+                        </div>
+                    </a>
+                    <?php
+					    }
+				    }
+			    ?>
+            </div>
+        </div>
+        <!--USER PROFILES-->
+
         <div class="profile-posts">
             <h1><?=$userInfo['fullName']??$userInfo['username']?>'s Posts</h1>
             <div class="posts">
@@ -114,7 +139,7 @@
                     </div>
                     <div class="post-desc" style="display:none">
                         <p>
-                        <?=linker($post['description'])?>
+                        <?//=linker($post['description'])?>
                         </p>
                     </div>
                     <div class="post-info">
@@ -143,9 +168,9 @@
                     <div class="post-img">
                         <!-- Profile Detay - 300*300 -->
                         <ins class="adsbygoogle"
-                             style="display:inline-block;width:300px;height:300px"
-                             data-ad-client="ca-pub-9896875941850273"
-                             data-ad-slot="6237119990"></ins>
+                            style="display:inline-block;width:300px;height:300px"
+                            data-ad-client="ca-pub-9896875941850273"
+                            data-ad-slot="6237119990"></ins>
                         <script>
                             (adsbygoogle = window.adsbygoogle || []).push({});
                         </script>

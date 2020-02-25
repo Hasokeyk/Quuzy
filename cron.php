@@ -4,158 +4,220 @@
     require "48186.php";
     require ROOT.'/pin/vendor/autoload.php';
     require ROOT.'/keyb/vendor/autoload.php';
+    set_time_limit(0);
 
     use seregazhuk\PinterestBot\Factories\PinterestBot;
+
+    if(isset($_GET['action']) and $_GET['action'] != 'cacheDel'){
+
+	    $pinBot = PinterestBot::create();
+	    $result = $pinBot->auth->login('pinme@quuzy.com', '48186hasokeyk',true);
+
+	    //$pinBot->getHttpClient()->useProxy('45.77.96.231', '8888');
+	    $someCookieValue = $pinBot->getHttpClient()->cookie('cookieName');
+	    $pinBot->getHttpClient()->setCookiesPath((__DIR__).'/cache/cookie/');
+	    $currentPath = $pinBot->getHttpClient()->getCookiesPath();
+
+	    if ($pinBot->auth->isLoggedIn()) {
+		    //echo 'Sorun yok <br>';
+	    }else{
+		    echo 3;
+		    $cookies = $pinBot->getHttpClient()->cookies();
+		    //$pinBot->getHttpClient()->removeCookies();
+		    print_r($cookies);
+		    exit;
+	    }
+
+	    if (!$result) {
+		    echo $pinBot->getLastError();
+		    die();
+	    }
+
+	    $error = $pinBot->getLastError();
+	    echo $error;
+
+	    if ($pinBot->user->isBanned()) {
+		    echo "Account has been banned!\n";
+		    die();
+	    }
+
+    }
 
     if(isset($_GET['action'])){
 	    if($_GET['action'] == 'pin2pin'){
 
-		    $pinBot = PinterestBot::create();
-		    $result = $pinBot->auth->login('quuzy@setiabudihitz.com', '48186hasokeyk',true);
+		    $users = $mysqli->query(
+		    	"SELECT
+						    U.id,
+						    U.username,
+						    U.fullName,
+						    U.pintBoardID,
+						    UP.pinID,
+						    UP.shortcode,
+						    UP.description
+						FROM
+						    users AS U,
+						    userposts AS UP
+						WHERE
+						    U.username = UP.username AND
+						    U.pintBoardID = 0 AND
+						    UP.pinID = 0 AND
+						    U.id = (SELECT
+                                        id
+                                    FROM
+                                        users AS U
+                                    WHERE
+                                        (pintBoardID = 0 OR pintBoardID = '') AND
+                                        (SELECT COUNT(id) FROM userposts WHERE username = U.username) > 1
+                                    ORDER BY
+                                        id
+                                    DESC
+                                    LIMIT 1)
+						ORDER BY
+						    U.id
+						DESC
+			");
 
-		    //$pinBot->getHttpClient()->useProxy('45.77.96.231', '8888');
-		    $someCookieValue = $pinBot->getHttpClient()->cookie('cookieName');
-		    $pinBot->getHttpClient()->setCookiesPath((__DIR__).'/cache/cookie/');
-		    $currentPath = $pinBot->getHttpClient()->getCookiesPath();
+		    if($users->num_rows > 0){
 
-		    if ($pinBot->auth->isLoggedIn()) {
-			    echo 'Sorun yok <br>';
-		    }else{
-			    echo 3;
-			    $cookies = $pinBot->getHttpClient()->cookies();
-			    //$pinBot->getHttpClient()->removeCookies();
-			    print_r($cookies);
-		    }
+			    $desc = '#photographytips #inspiredpictures #picturestumblr #tumblrphoto #instagramtips #instagramlive #instagramname #instagrampost #instagramlove #instagrampictures #beautyinstagram #goodinstagram #funnyinstagram #loveinstagram #love #background #Wallpaper #beautiful';
 
-		    if (!$result) {
-			    echo $pinBot->getLastError();
-			    die();
-		    }
+			    while($user = $users->fetch_assoc()){
 
-		    $error = $pinBot->getLastError();
-		    echo $error;
+		    		if($user['pintBoardID'] == '0' or empty($user['pintBoardID'])){
 
-		    if ($pinBot->user->isBanned()) {
-			    echo "Account has been banned!\n";
-			    die();
-		    }
+					    $pinBot->boards->create($user['username'], $user['fullName'].' '.$desc);
+					    sleep(1);
+					    $boards = $pinBot->boards->forMe();
+					    foreach($boards as $b){
+					        if($user['username'] == $b['name']){
+					            $boardID = $b['id'];
+					            break;
+					        }
+					    }
 
-		    $nonPinPost = $mysqli->query("SELECT * FROM users AS U,userposts AS UP WHERE U.username = UP.username AND U.pintBoardID != 0 AND UP.pinID = 0 LIMIT 20");
-		    if($nonPinPost->num_rows > 0){
-		    	//echo $nonPinPost->num_rows;
-			    while($p = $nonPinPost->fetch_assoc()){
-			    	//$desc = mb_convert_encoding(substr($p['description'],0,400),'utf8');
-				    $desc = '#photographytips
-#inspiredpictures
-#picturestumblr
-#tumblrphoto
-#instagramtips
-#instagramlive
-#instagramname
-#instagrampost
-#instagramlove
-#instagrampictures
-#beautyinstagram
-#goodinstagram
-#funnyinstagram
-#loveinstagram
-#love
-#background
-#Wallpaper
-#beautiful';
+					    $mysqli->query("UPDATE users SET pintBoardID = '".$boardID."' WHERE id = '".$user['id']."'");
+					    $pinBot->boards->update($boardID, [
+						    'category'    => 'photography',
+					    ]);
+
+				    }else{
+					    $boardID = $user['pintBoardID'];
+				    }
+
+				    $desc = '#photographytips #inspiredpictures #picturestumblr #tumblrphoto #instagramtips #instagramlive #instagramname #instagrampost #instagramlove #instagrampictures #beautyinstagram #goodinstagram #funnyinstagram #loveinstagram #love #background #Wallpaper #beautiful';
+
 				    $pin = $pinBot->pins->create(
-					    'https://quuzy.com/img/p/'.$p['shortcode'].'/',
-					    $p['pintBoardID'],
+					    'https://quuzy.com/img/p/'.$user['shortcode'].'/',
+					    $boardID,
 					    $desc,
-					    'https://quuzy.com/instagram/'.$p['username'].'/',
-					    $p['username']
-                );
-				    sleep(1);
+					    'https://quuzy.com/instagram/'.$user['username'].'/',
+					    $user['username']
+				    );
+
 				    if($pin !== false){
 					    echo 'Paylaşıldı'.$pin['id']."\n <br>";
-					    $mysqli->query("UPDATE userposts SET pinID ='".$pin['id']."' WHERE shortcode='".$p['shortcode']."'");
+					    $mysqli->query("UPDATE userposts SET pinID ='".$pin['id']."' WHERE shortcode='".$user['shortcode']."'");
 				    }else{
 					    echo $pinBot->getLastError();
-					    echo '<a href="https://quuzy.com/img/p/'.$p['shortcode'].'/" target="_blank">'.$p['shortcode'].'</a> Paylaşılamadı'."\n";
+					    echo '<a href="https://quuzy.com/img/p/'.$user['shortcode'].'/" target="_blank">'.$user['shortcode'].'</a> Paylaşılamadı'."\n";
 					    break;
 				    }
 
 			    }
-		    }else{
-			    echo 'Paylaşım yok';
+
 		    }
+
 	    }
-	    else if($_GET['action'] == 'instaID'){
+	    else if($_GET['action'] == 'tag2pin'){
 
-	    	$nonInstaID = $mysqli->query("SELECT * FROM users WHERE instaID = 0 LIMIT 20");
-			if($nonInstaID->num_rows > 0){
-				while ($user = $nonInstaID->fetch_assoc()){
+		    $boardsID = [
+		    	'857091441523499054' => 'homedecor'
+		    ];
 
+		    foreach($boardsID as  $boardID => $tag){
 
+		    	$boardID = (String) $boardID;
+				$tagJson = json_decode(file_get_contents('https://www.instagram.com/explore/tags/'.$tag.'/?__a=1'));
+				$tagPost = $tagJson->graphql->hashtag->edge_hashtag_to_media->edges;
+
+				foreach($tagPost as $post){
+
+					$p = $post->node;
+
+					$pin = $pinBot->pins->create(
+						$p->display_url,
+						$boardID,
+						'#homedecor #homedecoration #homedecorating #homedecore #homedecorations #homedecorideas #homedecorlovers #homedecorblogger #homedecors #homedecorator #homedecorinspo #homedecorationideas #homedecorate #homedecorinspiration #homedecormurah #homedecorlover #homedecorlove #homedecorblog #homedecorsg #homedecoratingideas #homedecorloversid #homedecorindo #homedecorindonesia #homedecorjakarta #homedecorshop #homedecoridea #homedecorloversfamilytangerang #homedecorstore #homedecortips #homedecoracao',
+						'https://quuzy.com/',
+						'Quuzy - Home Decor '.date('d.m.Y')
+					);
+
+					if($pin !== false){
+						echo 'Paylaşıldı'.$pin['id']."\n <br>";
+					}else{
+						print_r($pinBot);
+						echo $pinBot->getLastError();
+						break;
+					}
+					sleep(1);
+					break;
 
 				}
-			}
+
+
+		    }
+
+		    //$boards = $pinBot->boards->forMe();
+		    //print_r($boards);
 
 	    }
-	    else if($_GET['action'] == 'cacheDel'){
+	    else if($_GET['action'] == 'openBoard'){
 
-	    	$imgs = glob(ROOT.'/cache/img/*');
+	    	$boardName = 'Home Decor';
+		    $pinBot->boards->create($boardName, '#homedecor #homedecoration #homedecorating #homedecore #homedecorations #homedecorideas #homedecorlovers #homedecorblogger #homedecors #homedecorator #homedecorinspo #homedecorationideas #homedecorate #homedecorinspiration #homedecormurah #homedecorlover #homedecorlove #homedecorblog #homedecorsg #homedecoratingideas #homedecorloversid #homedecorindo #homedecorindonesia #homedecorjakarta #homedecorshop #homedecoridea #homedecorloversfamilytangerang #homedecorstore #homedecortips #homedecoracao');
+		    sleep(1);
+		    $boards = $pinBot->boards->forMe();
+		    foreach($boards as $b){
+			    if($boardName == $b['name']){
+				    $boardID = $b['id'];
+				    break;
+			    }
+		    }
+
+		    $pinBot->boards->update($boardID, [
+			    'category'    => 'home_decor',
+		    ]);
+
+		    echo $boardID;
+
+	    }else if($_GET['action'] == 'cacheDel'){
+
+		    $imgs = glob(ROOT.'/cache/img/*');
 		    foreach ($imgs as $img){
-	    		unlink($img);
+			    unlink($img);
 		    }
-			echo count($imgs).' Görsel Silindi'."<br> \n";
+		    echo count($imgs).' Görsel Silindi'."<br> \n";
 
 
-	    	$sitemaps = glob(ROOT.'/cache/sitemap/*');
+		    $sitemaps = glob(ROOT.'/cache/sitemap/*');
 		    foreach ($sitemaps as $sitemap){
-	    		unlink($sitemap);
+			    unlink($sitemap);
 		    }
-			echo count($sitemaps).' Sitemap Silindi'."<br> \n";
+		    echo count($sitemaps).' Sitemap Silindi'."<br> \n";
 
-	    	$htmls = glob(ROOT.'/cache/html/*');
+		    $htmls = glob(ROOT.'/cache/html/*');
 		    foreach ($htmls as $html){
-	    		unlink($html);
+			    unlink($html);
+		    }
+		    echo count($htmls).' Html Cache Silindi'."<br> \n";
+	    }else if($_GET['action'] == 'cacheDelHtml'){
+
+		    $htmls = glob(ROOT.'/cache/html/*');
+		    foreach ($htmls as $html){
+			    unlink($html);
 		    }
 			echo count($htmls).' Html Cache Silindi'."<br> \n";
-	    }
-	    else if($_GET['action'] == 'test'){
-
-		    $pinBot = PinterestBot::create();
-		    $result = $pinBot->auth->login('quuzy@setiabudihitz.com', '48186hasokeyk',true);
-
-		    //$pinBot->getHttpClient()->useProxy('45.77.96.231', '8888');
-		    $someCookieValue = $pinBot->getHttpClient()->cookie('cookieName');
-		    $pinBot->getHttpClient()->setCookiesPath((__DIR__).'/cache/cookie/');
-		    $currentPath = $pinBot->getHttpClient()->getCookiesPath();
-
-		    if ($pinBot->auth->isLoggedIn()) {
-			    echo 'Sorun yok <br>';
-		    }else{
-			    echo 3;
-			    $cookies = $pinBot->getHttpClient()->cookies();
-			    //$pinBot->getHttpClient()->removeCookies();
-			    print_r($cookies);
-		    }
-
-		    if (!$result) {
-			    echo $pinBot->getLastError();
-			    die();
-		    }
-
-		    $error = $pinBot->getLastError();
-		    echo $error;
-
-		    if ($pinBot->user->isBanned()) {
-			    echo "Account has been banned!\n";
-			    die();
-		    }
-
-		    //$boards = $pinBot->boards->forUser('anecuza_621');
-		    $boards = $pinBot->pins
-		        ->search('cats')
-		        ->take(100)
-		        ->toArray();
-		    print_r($boards);
-
+			
 	    }
     }

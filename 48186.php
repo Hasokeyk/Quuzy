@@ -14,7 +14,7 @@
 	error_reporting(E_ALL);
 
     //VERİTABANI
-    $mysqli = new mysqli('localhost','quuzyDB','48186hasokeyk','quuzyDB');
+    $mysqli = new mysqli('localhost','quuzydb','48186hasokeyk','quuzydb');
     if($mysqli->connect_error){
         echo 'hata';
         exit;

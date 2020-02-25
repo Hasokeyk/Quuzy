@@ -29,10 +29,12 @@
 			}else{
 				$insLink = "https://instagram.com/".$shortcode."/?__a=1";
 				$html = get_web_page($insLink);
+
 				if(isset($_GET['test'])){
 					print_r($html);
 					exit;
 				}
+
 				if($html['http_code'] == 200){
 					$imageLink = json_decode($html['content']);
 					$imageLink = $imageLink->graphql->user->profile_pic_url_hd;
@@ -95,6 +97,7 @@
 		}
 
 		$html = get_web_page($imageLink);
+		print_r($html);
 		if($html['http_code'] == 200){
 			if(strlen($html['content']) > 100){
 				$ac = fopen((__DIR__).'/cache/img/'.$shortcode,'w');
@@ -104,6 +107,7 @@
 			}
 		}
 
-	}else{
+	}
+	else{
 		echo file_get_contents(THEMEDIR.'/assets/img/default.jpg');
 	}

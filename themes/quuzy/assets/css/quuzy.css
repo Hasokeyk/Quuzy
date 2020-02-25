@@ -582,6 +582,51 @@ a:hover {text-decoration: none;}
 .profile-detail .profile-content .profile-posts .post .post-info .post-info-detail ul li.download-btn a{
     color: #fff;
 }
+
+.profile-detail .profile-content .last-user-profiles{
+	float: left;
+	width: 100%;
+	padding: 40px;
+	box-sizing: border-box;
+}
+.profile-detail .profile-content .last-user-profiles h1{
+	float: left;
+	width: 100%;
+	font-size: 32px;
+	/* margin-left: 15px; */
+	margin-bottom: 26px;
+	line-height: 42px;
+}
+.profile-detail .profile-content .last-user-profiles .users{
+	/* float: left; */
+	width: 100%;
+	/* text-align: center; */
+	margin: auto;
+}
+.profile-detail .profile-content .last-user-profiles .users .user{
+	float: left;
+	width: calc(96px - 10px);
+	margin: 5px;
+}
+.profile-detail .profile-content .last-user-profiles .users .user .user-circle{
+	/* float: left; */
+	width: 80px;
+	height: 80px;
+	border: double 3px transparent;
+	border-radius: 500px;
+	background-image: linear-gradient(white, white), radial-gradient(circle at top left, #bf697b,#dfa371);
+	background-origin: border-box;
+	background-clip: content-box, border-box;
+	margin: auto;
+}
+.profile-detail .profile-content .last-user-profiles .users .user .user-circle img{
+	width: calc(100% - 10px);
+	height: calc(100% - 10px);
+	border-radius: 500px;
+	margin: 5px;
+	object-fit: cover;
+	overflow: hidden;
+}
 @media(max-width:680px){
     .profile-detail .profile-info{
         position: relative;

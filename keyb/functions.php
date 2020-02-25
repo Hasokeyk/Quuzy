@@ -267,6 +267,6 @@
 
     function linker($string=false){
 
-        return preg_replace('|@([a-zA-Z0-9_.]+)|is','<a href="//quuzy.com/instagram/$1/">@$1</a> ',$string);
+        return mb_strtolower(preg_replace('|@([a-zA-Z0-9_.]+)|is','<a href="//quuzy.com/instagram/$1/">@$1</a> ',$string),'utf8');
  
      }

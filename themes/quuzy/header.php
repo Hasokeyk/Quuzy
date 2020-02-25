@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="alternate" hreflang="x-default" href="https://quuzy.com/" />
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -54,9 +56,76 @@
     <link href="<?=THEMEPATH?>assets/css/quuzy.css" rel="stylesheet">
     <?php
         $urlParse = $this->urlParse();
+
+        $adsBlock = [
+        "lovelynicocoa",
+        "camsoda",
+        ];
+
+        if(in_array($urlParse['subFolder'],$adsBlock)){
+          echo '<meta name="AdsBot-Google" content="noindex, nofollow" />';
+        }
         //print_r($urlParse);
     ?>
 
     <script data-ad-client="ca-pub-9896875941850273" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+    <script>
+		window.googletag = window.googletag || {cmd: []};
+		googletag.cmd.push(function() {
+			googletag.defineSlot('/21841614389/Quuzy', [300, 300], 'div-gpt-ad-1581012875915-0').addService(googletag.pubads());
+			googletag.pubads().enableSingleRequest();
+			googletag.enableServices();
+		});
+    </script>
+
+    <meta name="p:domain_verify" content="172b7b60e24f43629c0ab4992e6ad2f7"/>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Instagram",
+            "item": "https://quuzy.com/instagram/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "<?=$this->seoTitle()?>",
+            "item": "https://quuzy.com/instagram/<?=$urlParse['subFolder']?>/"
+          }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+        {
+            "@context":"http://schema.org",
+            "@type":"SocialMediaPosting",
+            "@id":"https://quuzy.com/instagram/<?=$urlParse['subFolder']?>/",
+            "datePublished":"<?=date('Y-m-d')?>",
+            "image": "https://quuzy.com/img/u/<?=$urlParse['subFolder']?>/",
+            "author":{
+                "@type":"Person",
+                "name": "<?=$urlParse['subFolder']?>",
+                "url":"https://quuzy.com/instagram/<?=$urlParse['subFolder']?>/"
+            },
+            "headline":"<?=$this->seoTitle()?>",
+            "sharedContent":{
+                "@type":"WebPage",
+                "headline":"<?=$this->seoTitle()?>",
+                "url":"https://quuzy.com/instagram/<?=$urlParse['subFolder']?>/",
+                "author":{
+                    "@type":"Person",
+                    "name":"<?=$urlParse['subFolder']?>"
+                }
+            }
+        }
+    </script>
 </head>
 <body data-username="<?=$urlParse['subFolder']??'quuzy'?>" data-page-type="<?=$this->page?>">

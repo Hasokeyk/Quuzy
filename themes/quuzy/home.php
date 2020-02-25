@@ -90,9 +90,9 @@
                                     <div class="post-img">
                                         <!-- Profile Detay - 300*300 -->
                                         <ins class="adsbygoogle"
-                                             style="display:inline-block;width:300px;height:300px"
-                                             data-ad-client="ca-pub-9896875941850273"
-                                             data-ad-slot="6237119990"></ins>
+                                            style="display:inline-block;width:300px;height:300px"
+                                            data-ad-client="ca-pub-9896875941850273"
+                                            data-ad-slot="6237119990"></ins>
                                         <script>
                                             (adsbygoogle = window.adsbygoogle || []).push({});
                                         </script>
@@ -189,7 +189,7 @@
                              data-ad-client="ca-pub-9896875941850273"
                              data-ad-slot="6237119990"></ins>
                         <script>
-                            (adsbygoogle = window.adsbygoogle || []).push({});
+		                    (adsbygoogle = window.adsbygoogle || []).push({});
                         </script>
                     </div>
                     <div class="post-desc" style="display:none">

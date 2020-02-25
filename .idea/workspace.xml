@@ -2,8 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="28021814-0a6f-478b-a13c-d93ed8275080" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/quuzy/assets/js/quuzy.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/quuzy/assets/js/quuzy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/48186.php" beforeDir="false" afterPath="$PROJECT_DIR$/48186.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/cookie/user.hsn" beforeDir="false" afterPath="$PROJECT_DIR$/cache/cookie/user.hsn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cron.php" beforeDir="false" afterPath="$PROJECT_DIR$/cron.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img.php" beforeDir="false" afterPath="$PROJECT_DIR$/img.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/keyb/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pwabuilder-sw-register.jss" beforeDir="false" afterPath="$PROJECT_DIR$/pwabuilder-sw-register.jss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/quuzy/assets/css/quuzy.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/quuzy/assets/css/quuzy.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/quuzy/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/themes/quuzy/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/quuzy/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/themes/quuzy/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/quuzy/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/themes/quuzy/home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/quuzy/profile-detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/themes/quuzy/profile-detail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/quuzy/sitemap.php" beforeDir="false" afterPath="$PROJECT_DIR$/themes/quuzy/sitemap.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +113,18 @@
       <workItem from="1579893334372" duration="2244000" />
       <workItem from="1580684371608" duration="4003000" />
       <workItem from="1580845737631" duration="1501000" />
-      <workItem from="1580924830570" duration="913000" />
+      <workItem from="1580924830570" duration="1512000" />
+      <workItem from="1581012735706" duration="9671000" />
+      <workItem from="1581066968918" duration="1514000" />
+      <workItem from="1581076003172" duration="759000" />
+      <workItem from="1581108222338" duration="3207000" />
+      <workItem from="1581167929244" duration="2202000" />
+      <workItem from="1581173365445" duration="3739000" />
+      <workItem from="1581762722516" duration="4185000" />
+      <workItem from="1582395796594" duration="1273000" />
+      <workItem from="1582545533830" duration="1280000" />
+      <workItem from="1582633455262" duration="624000" />
+      <workItem from="1582642721811" duration="619000" />
     </task>
     <servers />
   </component>
@@ -108,14 +132,18 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="756" y="343" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1577307891309">
+    <state x="585" y="199" key="#Deployment" timestamp="1581173455043">
       <screen x="66" y="0" width="1854" height="1080" />
     </state>
-    <state x="756" y="343" key="#com.intellij.fileTypes.FileTypeChooser/66.0.1854.1080/1982.2.1858.1080@66.0.1854.1080" timestamp="1577307891309" />
-    <state x="1825" y="-13" width="1670" height="896" maximized="true" key="DirDiffDialog" timestamp="1579893488400">
+    <state x="585" y="199" key="#Deployment/66.0.1854.1080/1982.2.1858.1080@66.0.1854.1080" timestamp="1581173455043" />
+    <state x="756" y="343" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1581074129270">
+      <screen x="66" y="0" width="1854" height="1080" />
+    </state>
+    <state x="756" y="343" key="#com.intellij.fileTypes.FileTypeChooser/66.0.1854.1080/1982.2.1858.1080@66.0.1854.1080" timestamp="1581074129270" />
+    <state x="1488" y="-11" width="1670" height="896" maximized="true" key="DirDiffDialog" timestamp="1582395929357">
       <screen x="1982" y="2" width="1858" height="1080" />
     </state>
-    <state x="1825" y="-13" width="1670" height="896" maximized="true" key="DirDiffDialog/66.0.1854.1080/1982.2.1858.1080@66.0.1854.1080" timestamp="1579893488400" />
+    <state x="1488" y="-11" width="1670" height="896" maximized="true" key="DirDiffDialog/66.0.1854.1080/1982.2.1858.1080@66.0.1854.1080" timestamp="1582395929357" />
     <state x="827" y="464" key="NewPhpFileDialog" timestamp="1578337512798">
       <screen x="66" y="0" width="1854" height="1080" />
     </state>
@@ -132,9 +160,13 @@
       <screen x="66" y="0" width="1854" height="1080" />
     </state>
     <state x="649" y="250" key="run.anything.popup/66.0.1854.1080/1982.2.1858.1080@66.0.1854.1080" timestamp="1580845972474" />
-    <state x="789" y="278" key="webDeployment.PermissionsDialog.Tabs" timestamp="1577309565301">
+    <state x="656" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1581014990741">
       <screen x="66" y="0" width="1854" height="1080" />
     </state>
-    <state x="789" y="278" key="webDeployment.PermissionsDialog.Tabs/66.0.1854.1080/1982.2.1858.1080@66.0.1854.1080" timestamp="1577309565301" />
+    <state x="656" y="235" width="672" height="678" key="search.everywhere.popup/66.0.1854.1080/1982.2.1858.1080@66.0.1854.1080" timestamp="1581014990741" />
+    <state x="789" y="278" key="webDeployment.PermissionsDialog.Tabs" timestamp="1581109530640">
+      <screen x="66" y="0" width="1854" height="1080" />
+    </state>
+    <state x="789" y="278" key="webDeployment.PermissionsDialog.Tabs/66.0.1854.1080/1982.2.1858.1080@66.0.1854.1080" timestamp="1581109530640" />
   </component>
 </project>
