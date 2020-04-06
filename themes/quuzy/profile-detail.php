@@ -4,15 +4,18 @@
     $userInfo = $mysqli->query("SELECT * FROM users WHERE username = '".$urlParse['subFolder']."'")->fetch_assoc();
     $adsLimit = 4;
 
+    $postLink = 'https://cdn.statically.io/img/quuzy.com/';
+    $postLink .= $userInfo['private']=='1'?'img/p/p':'img/p';
+
 ?>
 
-<div class="profile-detail">
+<section class="profile-detail">
 
     <div class="profile-info">
 
         <div class="profile-pic">
             <div class="profile-circle">
-                <img src="/img/u/<?=$userInfo['username']?>/" alt="<?=$userInfo['fullName']?>">
+                <img src="https://cdn.statically.io/img/quuzy.com/img/u/<?=$userInfo['username']?>/" alt="<?=$userInfo['fullName']?>">
             </div>
         </div>
 
@@ -101,7 +104,7 @@
                     ?>
                     <a href="/instagram/<?=$user['username']?>/" class="user">
                         <div class="user-circle">
-                            <img src="https://quuzy.com/img/u/<?=$user['username']?>/" alt="<?=$user['fullName']?>">
+                            <img src="https://cdn.statically.io/img/quuzy.com/img/u/<?=$user['username']?>/" alt="<?=$user['fullName']?>">
                         </div>
                     </a>
                     <?php
@@ -114,6 +117,15 @@
 
         <div class="profile-posts">
             <h1><?=$userInfo['fullName']??$userInfo['username']?>'s Posts</h1>
+
+            <?php
+                if($userInfo['private'] == '1'){
+            ?>
+            <div class="alert alert-danger">This profile is private. The contents will be loaded within 24 hours. Please visit this page again.</div>
+            <?php
+                }
+            ?>
+
             <div class="posts">
             <?php
                 $posts = $mysqli->query("SELECT * FROM userposts WHERE username='".$urlParse['subFolder']."' ORDER BY id DESC");
@@ -126,13 +138,13 @@
                         <?php
                             if($post['type'] == 'photo'){
                         ?>
-                        <a href="/img/p/<?=$post['shortcode']?>/" data-fancybox="gallery">
-                            <img src="/img/p/<?=$post['shortcode']?>/" alt="<?=$post['description']?>"/>
+                        <a href="<?=$postLink?>/<?=$post['shortcode']?>/" data-fancybox="gallery">
+                            <img src="<?=$postLink?>/<?=$post['shortcode']?>/?format=webp" alt="<?=$post['description']?>"/>
                         </a>
                         <?php
                             }else{
                         ?>
-                        <img src="/img/p/<?=$post['shortcode']?>/" alt="<?=$post['description']?>"/>
+                        <img src="<?=$postLink?>/<?=$post['shortcode']?>/?format=webp" alt="<?=$post['description']?>"/>
                         <?php
                             }
                         ?>
@@ -155,7 +167,7 @@
                                 </li>
                                 <li class="download-btn">
                                     <div class="icon"><i class="fas fa-download"></i></div>
-                                    <div class="text"><a href="/img/p/<?=$post['shortcode']?>/" download="<?=$post['shortcode']?>.png">Download</a></div>
+                                    <div class="text"><a href="<?=$postLink?>/<?=$post['shortcode']?>/" download="<?=$post['shortcode']?>.png">Download</a></div>
                                 </li>
                             </ul>
                         </div>
@@ -168,11 +180,13 @@
                     <div class="post-img">
                         <!-- Profile Detay - 300*300 -->
                         <ins class="adsbygoogle"
-                            style="display:inline-block;width:300px;height:300px"
-                            data-ad-client="ca-pub-9896875941850273"
-                            data-ad-slot="6237119990"></ins>
+                             style="display:block"
+                             data-ad-client="ca-pub-9896875941850273"
+                             data-ad-slot="6237119990"
+                             data-ad-format="auto"
+                             data-full-width-responsive="true"></ins>
                         <script>
-                            (adsbygoogle = window.adsbygoogle || []).push({});
+                             (adsbygoogle = window.adsbygoogle || []).push({});
                         </script>
                     </div>
                     <div class="post-desc" style="display:none">
@@ -207,7 +221,7 @@
 
     </div>
 
-</div>
+</section>
 
 <?php 
     require THEMEDIR."footer.php";

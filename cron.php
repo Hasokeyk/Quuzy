@@ -2,11 +2,12 @@
 
     global $pinBot;
     require "48186.php";
-    require ROOT.'/pin/vendor/autoload.php';
     require ROOT.'/keyb/vendor/autoload.php';
     set_time_limit(0);
 
     use seregazhuk\PinterestBot\Factories\PinterestBot;
+    use InstagramAPI\Instagram;
+    \InstagramAPI\Instagram::$allowDangerousWebUsageAtMyOwnRisk = true;
 
     if(isset($_GET['action']) and $_GET['action'] != 'cacheDel'){
 
@@ -44,7 +45,83 @@
     }
 
     if(isset($_GET['action'])){
-	    if($_GET['action'] == 'pin2pin'){
+
+	    if($_GET['action'] == 'photoShare'){
+
+	    	$debug = false;
+			$truncatedDebug = false;
+	        $ig = new Instagram($debug, $truncatedDebug);
+
+			try {
+
+				$kodlar = [
+					'9376 0152',
+					'1603 4928',
+					'3968 0752',
+					'8173 6902',
+					'5178 3062',
+				];
+
+				$username = 'home.decor.pin';
+				$password = 'hasan.hayati@KODLA20';
+
+			    $ig->login($username, $password,'10000');
+			    if ($loginResponse !== null && $loginResponse->isTwoFactorRequired()) {
+			        $twoFactorIdentifier = $loginResponse->getTwoFactorInfo()->getTwoFactorIdentifier();
+
+			        // The "STDIN" lets you paste the code via terminal for testing.
+			        // You should replace this line with the logic you want.
+			        // The verification code will be sent by Instagram via SMS.
+			        $verificationCode = trim(fgets('81736902'));
+			        $ig->finishTwoFactorLogin($username, $password, $twoFactorIdentifier, $verificationCode);
+			    }
+
+			} catch (\Exception $e) {
+			    echo 'Giriş sorunu: '.$e->getMessage()."\n";
+			    return false;
+			    exit(0);
+			}
+
+			$tags = [
+				'Home Decor',
+				'Home Style',
+				'Home',
+				'home office',
+				'home organization',
+				'home staging',
+				'home stylist',
+				'home Store',
+			];
+			$tagText = $tags[rand(0,(count($tags)-1))];
+		    $pins = $pinBot->pins->search($tagText,'3')->toArray();
+		    $pins = $pins[0]['objects']??$pins;
+		    foreach($pins as $pinner){
+				$picUrl     = $pinner['images']['orig']['url'];
+				$picDesc    = $pinner['description'];
+				$picDesc    .= '#homedecor #lifestyle #homestyle #homestudio #homestaging';
+
+				$fileName = (__DIR__).'/temp.jpg';
+				$file = file_get_contents($picUrl);
+				$file = file_put_contents($fileName, $file);
+
+				if(file_exists($fileName)){
+					try{
+						$photo = new \InstagramAPI\Media\Photo\InstagramPhoto($fileName);
+						$result = $ig->timeline->uploadPhoto($photo->getFile(), ['caption' => $picDesc]);
+					}catch(Exception $err){
+						echo 'Hata: '.$err->getMessage();
+					}
+				}else{
+					echo $fileName.' dosya yok';
+					break;
+				}
+
+
+				sleep(3);
+			}
+
+	    }
+	    else if($_GET['action'] == 'pin2pin'){
 
 		    $users = $mysqli->query(
 		    	"SELECT
@@ -62,6 +139,7 @@
 						    U.username = UP.username AND
 						    U.pintBoardID = 0 AND
 						    UP.pinID = 0 AND
+						    U.private = 0 AND
 						    U.id = (SELECT
                                         id
                                     FROM
@@ -191,7 +269,8 @@
 
 		    echo $boardID;
 
-	    }else if($_GET['action'] == 'cacheDel'){
+	    }
+	    else if($_GET['action'] == 'cacheDel'){
 
 		    $imgs = glob(ROOT.'/cache/img/*');
 		    foreach ($imgs as $img){
@@ -211,7 +290,8 @@
 			    unlink($html);
 		    }
 		    echo count($htmls).' Html Cache Silindi'."<br> \n";
-	    }else if($_GET['action'] == 'cacheDelHtml'){
+	    }
+	    else if($_GET['action'] == 'cacheDelHtml'){
 
 		    $htmls = glob(ROOT.'/cache/html/*');
 		    foreach ($htmls as $html){

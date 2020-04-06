@@ -6,15 +6,16 @@ jQuery(function($){
     //404 SAYFASI ÜYE KONTROL
     if(pageType == '404' && username != '' && username != 'quuzy'){
 
-        $('.big-text').html('(<span class="counter">1</span>) Please Wait... Loading Profile..');
-
-        var i = 1;
-        setInterval(function () {
-            $('.big-text .counter').text(i++);
-        },1000)
-
         try {
             $.getJSON('https://www.instagram.com/'+username+'?__a=1',function(user){
+
+            	$('.big-text').html('(<span class="counter">1</span>) Please Wait... Loading Profile..');
+
+		        var i = 1;
+		        setInterval(function () {
+		            $('.big-text .counter').text(i++);
+		        },1000)
+
                 $.post('/ajax/user',{user:JSON.stringify(user),type:'link',action:'userSave'},function(userInfo){
                     var json = JSON.parse(userInfo);
                     if(json.status == 'success'){
@@ -55,6 +56,7 @@ jQuery(function($){
     //PROFİLE DETAY
 
     //ANA SAYFA
+	/*
     if($('body').filter('[data-page-type="home"]')){
 
         $('.last-user-profiles .users a').each(function (i,e) {
@@ -65,19 +67,20 @@ jQuery(function($){
             var username = regex.exec(href);
 
             $.getJSON('https://www.instagram.com/'+username[1]+'?__a=1',function(user){
-                $('.last-user-profiles .users a:eq('+i+') img').attr('src',user.graphql.user.profile_pic_url_hd);
+                //$('.last-user-profiles .users a:eq('+i+') img').attr('src',user.graphql.user.profile_pic_url_hd);
 
-                //$.post('/ajax/user',{user:JSON.stringify(user),type:'link',action:'userPostSave'},function(userInfo){
-                //    var json = JSON.parse(userInfo);
-                //    if(json.status == 'success'){
-                //        //location.reload();
-                //    }
-                //})
+                $.post('/ajax/user',{user:JSON.stringify(user),type:'link',action:'userSave'},function(userInfo){
+                    var json = JSON.parse(userInfo);
+                    if(json.status == 'success'){
+                        //location.reload();
+                    }
+                })
             })
 
         });
 
     }
+    */
     //ANA SAYFA
 
     //HOME PAGE VIDEO PLAY
@@ -103,4 +106,31 @@ jQuery(function($){
     //LIGHTBOX
     $('.post.photo .post-img a').fancybox();
     //LIGHTBOX
+
+	//ADBLOCK DETEC
+	$.adblockDetector.detect().done(function(adsEnabled){
+		if (!adsEnabled) {
+			$('body section').addClass('blur');
+			swal({
+				title: 'Adblock Detected',
+				text: "You won't be able to access this page",
+				type: 'warning',
+				showCancelButton: false,
+				confirmButtonColor: '#3085d6',
+				cancelButtonColor: '#d33',
+				confirmButtonText: 'Disable Adblock',
+				allowOutsideClick: false
+			}).then((result) => {
+				if (result.value) {
+					location.reload();
+					swal(
+						'Thank You!',
+						'Refresh The Page',
+						'success'
+					)
+				}
+			})
+		}
+	});
+	//ADBLOCK DETEC
 });

@@ -1,5 +1,6 @@
 {
     "require": {
-        "guzzlehttp/guzzle": "^6.5"
+        "seregazhuk/pinterest-bot": "^5.9",
+        "mgp25/instagram-php": "4.1.0"
     }
 }

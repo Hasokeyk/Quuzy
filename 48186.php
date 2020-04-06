@@ -27,5 +27,5 @@
     define('KEYBDIR',ROOT.'/keyb/');
     define('THEMENAME','quuzy');
     define('THEMEDIR',ROOT.'/themes/'.THEMENAME.'/');
-    define('THEMEPATH',$_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].'/themes/'.THEMENAME.'/');
-    define('SITENAME',$_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST']);
+    define('THEMEPATH','https://quuzy.com/themes/'.THEMENAME.'/');
+    define('SITENAME','https://quuzy.com');

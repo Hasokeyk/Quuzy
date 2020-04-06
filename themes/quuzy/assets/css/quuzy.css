@@ -656,6 +656,9 @@ a:hover {text-decoration: none;}
         max-width: 320px;
         max-height: 320px;
     }
+    .profile-detail .profile-content .last-user-profiles{
+		padding: 15px;
+	}
 }
 /* PROFILE DETAIL */
 
@@ -744,3 +747,25 @@ a:hover {text-decoration: none;}
     }
 }
 /* 404 PAGE */
+
+/* OTHERS */
+.alert{
+	float: left;
+	width: 100%;
+	background: #eee;
+	color: #fff;
+	padding: 15px;
+	border-radius: 5px;
+	box-sizing: border-box;
+}.alert-danger{
+	background: #cc4b77;
+}
+.blur{
+	-webkit-filter: blur(20px);
+	-moz-filter: blur(20px);
+	-ms-filter: blur(20px);
+	-o-filter: blur(20px);
+	filter: blur(20px);
+	z-index: -1;
+}
+/* OTHERS */

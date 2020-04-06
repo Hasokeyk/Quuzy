@@ -2,6 +2,7 @@
 RewriteEngine On
 RewriteBase /
 
+RewriteRule img/p/p/(.*?)/ img.php?shortcode=$1&type=privatephoto [L,NC,QSA]
 RewriteRule img/p/(.*?)/ img.php?shortcode=$1&type=photo [L,NC,QSA]
 RewriteRule img/u/(.*?)/ img.php?shortcode=$1&type=user [L,NC,QSA]
 

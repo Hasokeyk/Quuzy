@@ -5,4 +5,10 @@ User-Agent: Googlebot
 Allow: .js
 Allow: .css
 
+User-Agent: SemrushBot
+Diallow: /
+
+User-Agent: AhrefsBot
+Diallow: /
+
 Sitemap: https://quuzy.com/sitemap.xml

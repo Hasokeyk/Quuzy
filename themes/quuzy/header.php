@@ -47,19 +47,24 @@
     <!--<script src="//quuzy.com/pwabuilder-sw-register.js"></script>-->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="<?=THEMEPATH?>assets/js/jquery.fancybox.min.js"></script>
-    <script src="<?=THEMEPATH?>assets/js/quuzy.js"></script>
+    <script src="<?=THEMEPATH?>assets/js/jquery.adblock-detector.js"></script>
+    <script src="<?=THEMEPATH?>assets/js/sweetalert2.min.js"></script>
+    <script src="<?=THEMEPATH?>assets/js/quuzy.js?<?=time()?>"></script>
 
 
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=auto" rel="stylesheet">
     <link href="<?=THEMEPATH?>assets/css/fontawesome-all.min.css" rel="stylesheet">
     <link href="<?=THEMEPATH?>assets/css/jquery.fancybox.min.css" rel="stylesheet">
+    <link href="<?=THEMEPATH?>assets/css/sweetalert2.min.css" rel="stylesheet">
     <link href="<?=THEMEPATH?>assets/css/quuzy.css" rel="stylesheet">
     <?php
         $urlParse = $this->urlParse();
 
         $adsBlock = [
-        "lovelynicocoa",
-        "camsoda",
+            "lovelynicocoa",
+            "camsoda",
+            "teelalaroux",
+            "vivianarobba",
         ];
 
         if(in_array($urlParse['subFolder'],$adsBlock)){

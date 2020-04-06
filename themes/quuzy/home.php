@@ -20,10 +20,32 @@
                 ?>
                 <a href="/instagram/<?=$user['username']?>/" class="user">
                     <div class="user-circle">
-                        <img src="https://quuzy.com/img/u/<?=$user['username']?>/" alt="<?=$user['fullName']?>">
+                        <img src="https://cdn.statically.io/img/quuzy.com/img/u/<?=$user['username']?>/?format=webp" alt="<?=$user['fullName']?>">
                     </div>
                 </a>
                 <?php 
+                        }
+                    }
+                ?>
+            </div>
+        </div>
+        <!--USER PROFILES-->
+
+        <!--USER PROFILES-->
+        <div class="last-user-profiles">
+            <h1>Popular Instagram Private Profile</h1>
+            <div class="users">
+                <?php
+                    $users = $mysqli->query("SELECT * FROM users WHERE private = '1' ORDER BY followedCount DESC LIMIT 15");
+                    if($users->num_rows > 0){
+                        while($user = $users->fetch_assoc()){
+                ?>
+                <a href="/instagram/<?=$user['username']?>/" class="user">
+                    <div class="user-circle">
+                        <img src="https://cdn.statically.io/img/quuzy.com/img/u/<?=$user['username']?>/?format=webp" alt="<?=$user['fullName']?>">
+                    </div>
+                </a>
+                <?php
                         }
                     }
                 ?>
@@ -57,7 +79,7 @@
 						    ?>
                             <div  class="post play video" data-shortcode="<?=$post['shortcode']?>">
                                 <div class="post-img">
-                                    <a href="/instagram/<?=$post['username']?>/"><img src="/img/p/<?=$post['shortcode']?>/" alt="<?=$post['description']?>"/></a>
+                                    <a href="/instagram/<?=$post['username']?>/"><img src="https://cdn.statically.io/img/quuzy.com/img/p/<?=$post['shortcode']?>/" alt="<?=$post['description']?>"/></a>
                                 </div>
                                 <div class="post-desc" style="display:none">
                                     <p>
@@ -77,7 +99,7 @@
                                             </li>
                                             <li class="download-btn">
                                                 <div class="icon"><i class="fas fa-download"></i></div>
-                                                <div class="text"><a href="/img/p/<?=$post['shortcode']?>/" download="<?=$post['shortcode']?>.png">Download</a></div>
+                                                <div class="text"><a href="https://cdn.statically.io/img/quuzy.com/img/p/<?=$post['shortcode']?>/" download="<?=$post['shortcode']?>.png">Download</a></div>
                                             </li>
                                         </ul>
                                     </div>
@@ -139,20 +161,21 @@
                                                     WHERE
                                                         U.username = UP.username AND
                                                         U.instaID != 0 AND
-                                                        UP.type != 'video' 
+                                                        UP.type != 'video' AND 
+                                                        U.private = 0
                                                     GROUP BY
                                                         UP.username
                                                     ORDER BY
                                                         UP.id
                                                     DESC
-                                                    LIMIT 30");
+                                                    LIMIT 10");
                     if($posts->num_rows > 0){
                         $ads = 0;
                         while($post = $posts->fetch_assoc()){
                 ?>
                 <div  class="post">
                     <div class="post-img">
-                        <a href="/instagram/<?=$post['username']?>/"><img src="/img/p/<?=$post['shortcode']?>/" alt="<?=$post['description']?>"/></a>
+                        <a href="/instagram/<?=$post['username']?>/"><img src="https://cdn.statically.io/img/quuzy.com/img/p/<?=$post['shortcode']?>/" alt="<?=$post['description']?>"/></a>
                     </div>
                     <div class="post-desc" style="display:none">
                         <p>
@@ -172,7 +195,7 @@
                                 </li>
                                 <li class="download-btn">
                                     <div class="icon"><i class="fas fa-download"></i></div>
-                                    <div class="text"><a href="/img/p/<?=$post['shortcode']?>/" download="<?=$post['shortcode']?>.png">Download</a></div>
+                                    <div class="text"><a href="https://cdn.statically.io/img/quuzy.com/img/p/<?=$post['shortcode']?>/" download="<?=$post['shortcode']?>.png">Download</a></div>
                                 </li>
                             </ul>
                         </div>
