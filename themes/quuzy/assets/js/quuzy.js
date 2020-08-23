@@ -4,58 +4,51 @@ jQuery(function($){
     var pageType = $('body').data('page-type');
 
     //404 SAYFASI ÜYE KONTROL
-    if(pageType=='404' && username!='' && username!='quuzy'){
+    if(pageType == '404' && username != '' && username != 'quuzy'){
 
-        try{
-            $.getJSON('https://www.instagram.com/'+username+'?__a=1', function(user){
+        try {
+            $.getJSON('https://www.instagram.com/'+username+'?__a=1',function(user){
 
-                $('.big-text').html('(<span class="counter">1</span>) Please Wait... Loading Profile..');
+            	$('.big-text').html('(<span class="counter">1</span>) Please Wait... Loading Profile..');
 
-                var i = 1;
-                setInterval(function(){
-                    $('.big-text .counter').text(i++);
-                }, 1000)
+		        var i = 1;
+		        setInterval(function () {
+		            $('.big-text .counter').text(i++);
+		        },1000)
 
-                $.post('/ajax/user', {user:JSON.stringify(user), type:'link', action:'userSave'}, function(userInfo){
+                $.post('/ajax/user',{user:JSON.stringify(user),type:'link',action:'userSave'},function(userInfo){
                     var json = JSON.parse(userInfo);
-                    if(json.status=='success'){
+                    if(json.status == 'success'){
                         location.reload();
                     }
                 })
             })
-        }catch(error){
+        } catch (error) {
             console.log('user not found');
         }
     }
     //404 SAYFASI ÜYE KONTROL
 
     //PROFİLE DETAY
-    if(pageType=='profile-detail' && username!='' && username!='quuzy'){
-        try{
+    if(pageType == 'profile-detail' && username != '' && username != 'quuzy'){
+        try {
+            $.getJSON('https://www.instagram.com/'+username+'?__a=1',function(user){
+                
+                
+                //<div class="post" style="position: absolute; left: 0px; top: 0px;">
+                //    <img src="https://instagram.fist4-1.fna.fbcdn.net/vp/f40cf01784f9b925b2b9894dd3330863/5E64A948/t51.2885-15/e35/71288560_1252681604910784_7379414989271924314_n.jpg?_nc_ht=instagram.fist4-1.fna.fbcdn.net&amp;_nc_cat=104" alt="Geleceğim için aldığım en güzel doğum günü hediyesi 😍😍😍😍">
+                //</div>
 
-            //if(localStorage.getItem(username+'reload') != 'false'){
-                $.getJSON('https://www.instagram.com/'+username+'?__a=1', function(user){
+                $('.profile-circle img').attr('src',user.graphql.user.profile_pic_url_hd);
 
-                    //<div class="post" style="position: absolute; left: 0px; top: 0px;">
-                    //    <img src="https://instagram.fist4-1.fna.fbcdn.net/vp/f40cf01784f9b925b2b9894dd3330863/5E64A948/t51.2885-15/e35/71288560_1252681604910784_7379414989271924314_n.jpg?_nc_ht=instagram.fist4-1.fna.fbcdn.net&amp;_nc_cat=104" alt="Geleceğim için aldığım en güzel doğum günü hediyesi 😍😍😍😍">
-                    //</div>
-
-                    $('.profile-circle img').attr('src', user.graphql.user.profile_pic_url_hd);
-
-                    $.post('/ajax/user', {
-                        user:JSON.stringify(user),
-                        type:'link',
-                        action:'userPostSave'
-                    }, function(userInfo){
-                        var json = JSON.parse(userInfo);
-                        if(json.status=='success'){
-                            localStorage.setItem(username+'reload', 'false');
-                            //location.reload();
-                        }
-                    })
+                $.post('/ajax/user',{user:JSON.stringify(user),type:'link',action:'userPostSave'},function(userInfo){
+                    var json = JSON.parse(userInfo);
+                    if(json.status == 'success'){
+                        //location.reload();
+                    }
                 })
-            //}
-        }catch(error){
+            })
+        } catch (error) {
             console.log('user not found');
         }
 
@@ -63,7 +56,7 @@ jQuery(function($){
     //PROFİLE DETAY
 
     //ANA SAYFA
-    /*
+	/*
     if($('body').filter('[data-page-type="home"]')){
 
         $('.last-user-profiles .users a').each(function (i,e) {
@@ -91,19 +84,19 @@ jQuery(function($){
     //ANA SAYFA
 
     //HOME PAGE VIDEO PLAY
-    $(document).on('click', '.post.video.play', function(){
+    $(document).on('click','.post.video.play',function () {
 
         var shortcode = $(this).data('shortcode');
         var postImg = $(this);
         $(this).removeClass('play');
-        $('video').each(function(){
+        $('video').each(function() {
             $(this).get(0).pause();
         });
 
-        $.getJSON('https://www.instagram.com/p/'+shortcode+'?__a=1', function(post){
+        $.getJSON('https://www.instagram.com/p/'+shortcode+'?__a=1',function(post){
 
             var videoUrl = post.graphql.shortcode_media.video_url;
-            $(' .post-img', postImg).html('<video autoplay type="video/mp4" src="'+videoUrl+'" controls="true"></video>');
+            $(' .post-img',postImg).html('<video autoplay type="video/mp4" src="'+videoUrl+'" controls="true"></video>');
 
         })
 
@@ -114,34 +107,30 @@ jQuery(function($){
     $('.post.photo .post-img a').fancybox();
     //LIGHTBOX
 
-    //ADBLOCK DETEC
-    $.adblockDetector.detect().done(function(adsEnabled){
-        if(!adsEnabled){
-            $('body section').addClass('blur');
-            swal({
-                title:'Adblock Detected',
-                text:"You won't be able to access this page",
-                type:'warning',
-                showCancelButton:false,
-                confirmButtonColor:'#3085d6',
-                cancelButtonColor:'#d33',
-                confirmButtonText:'Disable Adblock',
-                allowOutsideClick:false
-            }).then((result) => {
-                if(result.value){
-                    location.reload();
-                    swal(
-                        'Thank You!',
-                        'Refresh The Page',
-                        'success'
-                    )
-                }
-            })
-        }
-    });
-    //ADBLOCK DETEC
-
-    //LAZYLOAD
-    $('img').lazy();
-    //LAZYLOAD
+	//ADBLOCK DETEC
+	$.adblockDetector.detect().done(function(adsEnabled){
+		if (!adsEnabled) {
+			$('body section').addClass('blur');
+			swal({
+				title: 'Adblock Detected',
+				text: "You won't be able to access this page",
+				type: 'warning',
+				showCancelButton: false,
+				confirmButtonColor: '#3085d6',
+				cancelButtonColor: '#d33',
+				confirmButtonText: 'Disable Adblock',
+				allowOutsideClick: false
+			}).then((result) => {
+				if (result.value) {
+					location.reload();
+					swal(
+						'Thank You!',
+						'Refresh The Page',
+						'success'
+					)
+				}
+			})
+		}
+	});
+	//ADBLOCK DETEC
 });

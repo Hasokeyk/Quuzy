@@ -1,14 +1,14 @@
+User-agent: * 
+Allow: /
+
 User-Agent: Googlebot
 Allow: .js
 Allow: .css
 
-User-agent: SemrushBot
-Disallow: /
+User-Agent: SemrushBot
+Diallow: /
 
 User-Agent: AhrefsBot
 Diallow: /
-
-User-agent: *
-Allow: /
 
 Sitemap: https://quuzy.com/sitemap.xml

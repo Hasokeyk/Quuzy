@@ -1,6 +1,8 @@
 <?php 
     
     use seregazhuk\PinterestBot\Factories\PinterestBot;
+    use InstagramAPI\Instagram;
+    \InstagramAPI\Instagram::$allowDangerousWebUsageAtMyOwnRisk = true;
 
     //global $pinBot;
     //require ROOT.'/pin/vendor/autoload.php';
@@ -25,7 +27,6 @@
             }
 
             $instaID        = $user->id;
-            $username       = $user->username;
             $followedCount  = $user->edge_followed_by->count;
             $followingCount = $user->edge_follow->count;
             $postsCount     = $user->edge_owner_to_timeline_media->count;
@@ -61,11 +62,11 @@
             }
 
             if($private == '1'){
-            	$posts = followedUserPostList($username);
+            	$posts = followedUserPostList($instaID);
             	if($posts === false){
             		userFollow($instaID);
 	            }else{
-            		userPostSaveApi($username);
+            		userPostSaveApi($posts, 'api');
 	            }
             }
 
@@ -77,38 +78,46 @@
 
     }
 
-    function userPostSaveApi($username){
+    function userPostSaveApi($data){
     	global $mysqli,$pinBot;
 
-	    if($username != null){
+	    if($data != null){
 
-            $ins = new Instagram();
-            $data = $ins->profile($username);
+	    	$debug = false;
+			$truncatedDebug = false;
+	        $ig = new Instagram($debug, $truncatedDebug);
 
+			try {
+			    $ig->login('home.decor.pin', '48186hasokeyk');
+			} catch (\Exception $e) {
+			    //echo 'Something went wrong: '.$e->getMessage()."\n";
+			    return false;
+			    exit(0);
+			}
 
-            foreach($data->graphql->user->edge_owner_to_timeline_media as $p){
+	    	foreach($data->items as $p){
 
-                if(isset($p->image_versions2->candidates[0]->url) and !empty($p->image_versions2->candidates[0]->url)){
-                    $mediaID            = $p->id;
-                    $shortcode          = $p->code;
-                    $username           = $p->user->username;
-                    $postUrl            = $p->image_versions2->candidates[0]->url;
-                    $postDesc           = $p->caption->text??'';
-                    $postComment        = 0;
-                    $postLike           = 0;
-                    $isVideo            = 0;
+	    		if(isset($p->image_versions2->candidates[0]->url) and !empty($p->image_versions2->candidates[0]->url)){
+		            $mediaID            = $p->id;
+		            $shortcode          = $p->code;
+		            $username           = $p->user->username;
+		            $postUrl            = $p->image_versions2->candidates[0]->url;
+		            $postDesc           = $p->caption->text??'';
+		            $postComment        = 0;
+		            $postLike           = 0;
+		            $isVideo            = 0;
 
-                    $ask = $mysqli->query("SELECT * FROM userposts WHERE shortcode = '".$shortcode."' AND username='".$username."'");
-                    if($ask->num_rows == 0){
-                        $sql = "INSERT INTO userposts SET url='".$postUrl."',commentCount='".$postComment."',likeCount='".$postLike."',shortcode='".$shortcode."',username='".$username."',description='".$postDesc."',type='".(($isVideo==1)?'video':'photo')."'";
-                        $save = $mysqli->query($sql);
-                    }else{
-                        $sql = "UPDATE userposts SET url='".$postUrl."',commentCount='".$postComment."',likeCount='".$postLike."',shortcode='".$shortcode."',username='".$username."',description='".$postDesc."',type='".(($isVideo==1)?'video':'photo')."' WHERE shortcode = '".$shortcode."' AND username='".$username."'";
-                        $update = $mysqli->query($sql);
-                    }
+		            $ask = $mysqli->query("SELECT * FROM userposts WHERE shortcode = '".$shortcode."' AND username='".$username."'");
+	                if($ask->num_rows == 0){
+	                    $sql = "INSERT INTO userposts SET url='".$postUrl."',commentCount='".$postComment."',likeCount='".$postLike."',shortcode='".$shortcode."',username='".$username."',description='".$postDesc."',type='".(($isVideo==1)?'video':'photo')."'";
+	                    $save = $mysqli->query($sql);
+	                }else{
+	                    $sql = "UPDATE userposts SET url='".$postUrl."',commentCount='".$postComment."',likeCount='".$postLike."',shortcode='".$shortcode."',username='".$username."',description='".$postDesc."',type='".(($isVideo==1)?'video':'photo')."' WHERE shortcode = '".$shortcode."' AND username='".$username."'";
+	                    $update = $mysqli->query($sql);
+	                }
 
-                }
-            }
+			    }
+		    }
 
 	    }
 
@@ -161,32 +170,49 @@
     }
 
     function userFollow($userID){
+    	
+    	return true;
 
-        try {
-            $ins = new Instagram();
-            $profile = $ins->follow($userID);
-            return true;
-        }catch (Exception $err){
-            echo $err->getMessage();
-        }
+    	$debug = false;
+		$truncatedDebug = false;
+    	$ig = new Instagram($debug, $truncatedDebug);
 
+		try {
+		    $ig->login('home.decor.pin', '48186hasokeyk');
+		} catch (\Exception $e) {
+		    // echo 'Something went wrong: '.$e->getMessage()."\n";
+			return false;
+		}
+
+	    try {
+			$result = json_decode($ig->people->follow($userID));
+			if($result->status == 'ok'){
+				return true;
+			}else{
+				return false;
+			}
+	    }catch (\Exception $e) {
+		    //echo 'Hata: '.$e->getMessage()."\n";
+			return false;
+		}
     }
 
-    function followedUserPostList($username){
+    function followedUserPostList($userID){
 
-        try {
-            $ins = new Instagram();
-            $profile = $ins->profile($username);
-            $posts   = $profile->edge_owner_to_timeline_media->edges;
+    	$debug = false;
+		$truncatedDebug = false;
+    	$ig = new Instagram($debug, $truncatedDebug);
 
-            if(isset($posts[0])){
-                return $posts;
-            }else{
-                return false;
-            }
-        }catch (Exception $err){
-            echo $err->getMessage();
-        }
+		try {
+		    $ig->login('home.decor.pin', '48186hasokeyk');
+
+		    return $result = json_decode($ig->timeline->getUserFeed($userID));
+
+		} catch (\Exception $e) {
+		    //echo 'Something went wrong: '.$e->getMessage()."\n";
+		    return false;
+		    exit(0);
+		}
 
     }
 
@@ -325,7 +351,7 @@
 	        CURLOPT_HTTPHEADER     => $header,     // return web page
             CURLOPT_RETURNTRANSFER => true,     // return web page
             CURLOPT_HEADER         => true,     //return headers in addition to content
-            CURLOPT_FOLLOWLOCATION => false,     // follow redirects
+            CURLOPT_FOLLOWLOCATION => true,     // follow redirects
             CURLOPT_ENCODING       => "",       // handle all encodings
             CURLOPT_AUTOREFERER    => true,     // set referer on redirect
             CURLOPT_CONNECTTIMEOUT => 120,      // timeout on connect

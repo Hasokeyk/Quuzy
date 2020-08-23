@@ -1,3 +1,18 @@
+<<<<<<< HEAD
+=======
+/**
+ * Detects if there are extensions for blocking ads
+ * currently active in the browser.
+ *
+ * How to use:
+ * $.adblockDetector.detect().done(function(adsEnabled){
+ *     if (!adsEnabled) {
+ *         //Ads are blocked
+ *     }
+ * });
+ * @version 1.0.2
+ */
+>>>>>>> 8f118ea9e87580e369fb0c2688b18ff60237f1ff
 ;(function($){
     if ($.adblockDetector) {
         console.error('AdBlock Detector instance exists already');

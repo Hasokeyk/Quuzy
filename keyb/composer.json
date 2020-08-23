@@ -1,9 +1,6 @@
 {
     "require": {
         "seregazhuk/pinterest-bot": "^5.9",
-        "guzzlehttp/guzzle": "^6.5",
-        "raiym/instagram-php-scraper": "^0.9.11",
-        "phpfastcache/phpfastcache": "^8.0",
-        "ssilence/php-imap-client": "dev-master"
+        "mgp25/instagram-php": "4.1.0"
     }
 }
