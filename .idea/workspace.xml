@@ -1,22 +1,409 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="28021814-0a6f-478b-a13c-d93ed8275080" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cache/cookie/127.0.0.1/Files/.htaccess" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/callback.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/insta.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/keyb/libs/instagram/EmailVerification.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/keyb/libs/instagram/Instagram.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/keyb/libs/tiny-hyml-minifier/TinyHtmlMinifier.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/keyb/libs/tiny-hyml-minifier/TinyMinify.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/postSave.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/privatePostSave.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/userSave.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/404.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/ajax/user.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/css/fontawesome-all.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/css/jquery.fancybox.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/css/quuzy-new.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/css/quuzy.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/css/sweetalert2.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/fonts/ProximaNovaA-Regular.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/fonts/ProximaNovaA-Regular.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/fonts/ProximaNovaA-Regular.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/fonts/ProximaNovaA-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/fonts/ProximaNovaA-Regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/img/default.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/img/favicons/android-icon-144x144.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/img/favicons/android-icon-192x192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/img/favicons/android-icon-36x36.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/img/favicons/android-icon-48x48.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/img/favicons/android-icon-72x72.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/img/favicons/android-icon-96x96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/img/favicons/apple-icon-114x114.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/img/favicons/apple-icon-120x120.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/img/favicons/apple-icon-144x144.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/img/favicons/apple-icon-152x152.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/img/favicons/apple-icon-180x180.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/img/favicons/apple-icon-57x57.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/img/favicons/apple-icon-60x60.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/img/favicons/apple-icon-72x72.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/img/favicons/apple-icon-76x76.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/img/favicons/apple-icon-precomposed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/img/favicons/apple-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/img/favicons/favicon-16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/img/favicons/favicon-32x32.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/img/favicons/favicon-96x96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/img/favicons/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/img/favicons/icon-128x128.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/img/favicons/icon-144x144.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/img/favicons/icon-152x152.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/img/favicons/icon-192x192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/img/favicons/icon-384x384.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/img/favicons/icon-512x512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/img/favicons/icon-72x72.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/img/favicons/icon-96x96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/img/favicons/ms-icon-144x144.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/img/favicons/ms-icon-150x150.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/img/favicons/ms-icon-310x310.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/img/favicons/ms-icon-70x70.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/img/quuzy-logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/js/jquery-3.4.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/js/jquery.adblock-detector.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/js/jquery.fancybox.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/js/jquery.lazy.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/js/quuzy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/js/sweetalert2.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/webfonts/fa-brands-400.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/webfonts/fa-brands-400.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/webfonts/fa-brands-400.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/webfonts/fa-brands-400.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/webfonts/fa-brands-400.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/webfonts/fa-duotone-900.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/webfonts/fa-duotone-900.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/webfonts/fa-duotone-900.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/webfonts/fa-duotone-900.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/webfonts/fa-duotone-900.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/webfonts/fa-light-300.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/webfonts/fa-light-300.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/webfonts/fa-light-300.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/webfonts/fa-light-300.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/webfonts/fa-light-300.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/webfonts/fa-regular-400.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/webfonts/fa-regular-400.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/webfonts/fa-regular-400.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/webfonts/fa-regular-400.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/webfonts/fa-regular-400.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/webfonts/fa-solid-900.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/webfonts/fa-solid-900.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/webfonts/fa-solid-900.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/webfonts/fa-solid-900.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/assets/webfonts/fa-solid-900.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/footer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/header.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/home.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/instagram.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/last-posts.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/profile-detail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/sidebar.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/sitemap.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy-old/sitemap.xsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy/assets/css/quuzy-new.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy/assets/css/sweetalert2.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy/assets/img/quuzy-logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy/assets/js/jquery-3.4.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy/assets/js/jquery.adblock-detector.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy/assets/js/jquery.lazy.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/quuzy/assets/js/sweetalert2.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/48186.php" beforeDir="false" afterPath="$PROJECT_DIR$/48186.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/cookie/user.hsn" beforeDir="false" afterPath="$PROJECT_DIR$/cache/cookie/user.hsn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/cookie/user.hsn" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cron.php" beforeDir="false" afterPath="$PROJECT_DIR$/cron.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img-old.php" beforeDir="false" afterPath="$PROJECT_DIR$/img-old.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/img.php" beforeDir="false" afterPath="$PROJECT_DIR$/img.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/keyb/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/keyb/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/keyb/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/keyb/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pwabuilder-sw-register.jss" beforeDir="false" afterPath="$PROJECT_DIR$/pwabuilder-sw-register.jss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/keybWork.php" beforeDir="false" afterPath="$PROJECT_DIR$/keyb/keybWork.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/autoload.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/composer/ClassLoader.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/composer/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/composer/autoload_classmap.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/composer/autoload_files.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/composer/autoload_namespaces.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/composer/autoload_psr4.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/composer/autoload_real.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/composer/autoload_static.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/composer/installed.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/.php_cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/UPGRADING.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/Client.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/ClientInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/Cookie/CookieJar.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/Cookie/CookieJarInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/Cookie/FileCookieJar.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/Cookie/SessionCookieJar.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/Cookie/SetCookie.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/Exception/BadResponseException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/Exception/ClientException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/Exception/ConnectException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/Exception/GuzzleException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/Exception/InvalidArgumentException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/Exception/SeekException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/Exception/ServerException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/Exception/TooManyRedirectsException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/Exception/TransferException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/Handler/CurlFactoryInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/Handler/CurlHandler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/Handler/CurlMultiHandler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/Handler/EasyHandle.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/Handler/MockHandler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/Handler/Proxy.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/Handler/StreamHandler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/HandlerStack.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/MessageFormatter.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/Middleware.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/Pool.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/PrepareBodyMiddleware.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/RedirectMiddleware.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/RequestOptions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/RetryMiddleware.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/TransferStats.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/UriTemplate.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/functions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/guzzle/src/functions_include.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/promises/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/promises/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/promises/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/promises/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/promises/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/promises/src/AggregateException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/promises/src/CancellationException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/promises/src/Coroutine.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/promises/src/EachPromise.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/promises/src/FulfilledPromise.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/promises/src/Promise.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/promises/src/PromiseInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/promises/src/PromisorInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/promises/src/RejectedPromise.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/promises/src/RejectionException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/promises/src/TaskQueue.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/promises/src/TaskQueueInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/promises/src/functions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/promises/src/functions_include.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/psr7/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/psr7/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/psr7/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/psr7/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/psr7/src/AppendStream.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/psr7/src/BufferStream.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/psr7/src/CachingStream.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/psr7/src/DroppingStream.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/psr7/src/FnStream.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/psr7/src/InflateStream.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/psr7/src/LazyOpenStream.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/psr7/src/LimitStream.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/psr7/src/MessageTrait.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/psr7/src/MultipartStream.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/psr7/src/NoSeekStream.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/psr7/src/PumpStream.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/psr7/src/Request.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/psr7/src/Response.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/psr7/src/Rfc7230.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/psr7/src/ServerRequest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/psr7/src/Stream.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/psr7/src/StreamDecoratorTrait.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/psr7/src/StreamWrapper.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/psr7/src/UploadedFile.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/psr7/src/Uri.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/psr7/src/UriNormalizer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/psr7/src/UriResolver.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/psr7/src/functions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/guzzlehttp/psr7/src/functions_include.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/psr/http-message/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/psr/http-message/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/psr/http-message/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/psr/http-message/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/psr/http-message/src/MessageInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/psr/http-message/src/RequestInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/psr/http-message/src/ResponseInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/psr/http-message/src/ServerRequestInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/psr/http-message/src/StreamInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/psr/http-message/src/UploadedFileInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/psr/http-message/src/UriInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/ralouphie/getallheaders/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/ralouphie/getallheaders/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/ralouphie/getallheaders/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyb/vendor/ralouphie/getallheaders/src/getallheaders.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/composer.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/autoload.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/composer/ClassLoader.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/composer/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/composer/autoload_classmap.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/composer/autoload_files.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/composer/autoload_namespaces.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/composer/autoload_psr4.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/composer/autoload_real.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/composer/autoload_static.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/composer/installed.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/.codeclimate.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/.scrutinizer.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/CONTRIBUTING.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/docs/account.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/docs/boards.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/docs/cookes.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/docs/custom-request.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/docs/errors-handling.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/docs/inbox.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/docs/interests-and-topics.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/docs/keywords.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/docs/pagination.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/docs/pinners.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/docs/pins.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/docs/proxy.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/docs/search.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/examples/auto_pins.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/examples/comments_repins.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/examples/followers.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/examples/multiple_accounts_and_proxy.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/examples/pins_parser.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/logo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/phpunit.xml.dist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Contracts/HttpClient.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Contracts/PaginatedResponse.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/CurlHttpClient.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Error.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Forms/Form.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Forms/Profile.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Forms/Registration.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Providers/Auth.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Providers/BoardSections.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Providers/Boards.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Providers/Comments.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Providers/Core/EntityProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Providers/Core/FollowableProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Providers/Core/Provider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Providers/Core/ProviderWrapper.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Providers/Inbox.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Providers/Interests.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Providers/Keywords.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Providers/Password.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Providers/Pinners.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Providers/Pins.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Providers/Suggestions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Providers/Topics.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Providers/User.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/ProvidersContainer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Request.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Response.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/SearchResponse.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Traits/BoardInvites.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Traits/CanBeDeleted.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Traits/CanBeShared.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Traits/HandlesRequest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Traits/HasEntityIdName.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Traits/HasPagination.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Traits/HasProfileSettings.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Traits/HasRelatedTopics.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Traits/ResolvesCurrentUser.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Traits/Searchable.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Traits/SendsMessages.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Traits/SendsRegisterActions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Traits/TryIt.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Api/Traits/UploadsImages.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Exceptions/AuthRequired.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Exceptions/InvalidRequest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Exceptions/PinterestBotException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Exceptions/WrongFollowingType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Exceptions/WrongProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Factories/PinterestBot.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Helpers/Cookies.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Helpers/FileHelper.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Helpers/Pagination.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Helpers/UrlBuilder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/src/Helpers/functions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/Bot/CookiesTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/Bot/CurlHttpClientTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/Bot/FormTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/Bot/PaginationTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/Bot/Providers/ApiRequestAssertions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/Bot/Providers/AuthTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/Bot/Providers/BoardInvitesTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/Bot/Providers/BoardSectionsTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/Bot/Providers/BoardsTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/Bot/Providers/CommentsTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/Bot/Providers/Core/ProviderTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/Bot/Providers/Core/ProviderWrapperTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/Bot/Providers/Core/ProvidersContainerTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/Bot/Providers/InboxTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/Bot/Providers/InterestsTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/Bot/Providers/KeywordsTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/Bot/Providers/LoginTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/Bot/Providers/PasswordTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/Bot/Providers/PinnersTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/Bot/Providers/PinsTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/Bot/Providers/ProfileSettingsTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/Bot/Providers/ProviderBaseTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/Bot/Providers/RegistrationTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/Bot/Providers/SharedPinTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/Bot/Providers/SuggestionsTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/Bot/Providers/TopicsTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/Bot/Providers/TryItTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/Bot/Providers/UserTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/Bot/RequestTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/Bot/ResolvesCurrentUsernameTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/Bot/ResponseTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/Bot/SendsMessagesTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/ErrorTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/Helpers/CookiesHelper.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/Helpers/ReflectionHelper.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pin/vendor/seregazhuk/pinterest-bot/tests/Helpers/ResponseHelper.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pwabuilder-sw-register.jss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pwabuilder-sw.jss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/robots.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/quuzy/ajax/user.php" beforeDir="false" afterPath="$PROJECT_DIR$/themes/quuzy/ajax/user.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/quuzy/assets/css/fontawesome-all.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/quuzy/assets/css/fontawesome-all.min.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/quuzy/assets/css/quuzy.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/quuzy/assets/css/quuzy.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/quuzy/assets/js/jquery.fancybox.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/quuzy/assets/js/jquery.fancybox.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/quuzy/assets/js/quuzy.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/quuzy/assets/js/quuzy.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/quuzy/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/themes/quuzy/footer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/quuzy/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/themes/quuzy/header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/quuzy/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/themes/quuzy/home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/quuzy/instagram.php" beforeDir="false" afterPath="$PROJECT_DIR$/themes/quuzy/instagram.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/quuzy/last-posts.php" beforeDir="false" afterPath="$PROJECT_DIR$/themes/quuzy/last-posts.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/quuzy/profile-detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/themes/quuzy/profile-detail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/quuzy/sitemap.php" beforeDir="false" afterPath="$PROJECT_DIR$/themes/quuzy/sitemap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/quuzy/sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/themes/quuzy/sidebar.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,23 +412,14 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/pin/composer.json</pharConfigPath>
-    <execution>
-      <executable />
-    </execution>
+    <execution />
   </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
     </option>
-    <expand />
-    <select />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -53,12 +431,16 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1VGNFJiR7oJccKYobmK0IyIvfs3" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
@@ -67,26 +449,23 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/themes/quuzy/assets/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/themes" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\Siteler\Quuzy" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\quuzy\themes\quuzy\assets\img" />
+      <recent name="C:\wamp64\www\Siteler\Quuzy\themes" />
+      <recent name="C:\wamp64\www\Siteler\Quuzy\themes\quuzy\assets\img" />
+      <recent name="C:\wamp64\www\Siteler\Quuzy\run" />
+      <recent name="C:\wamp64\www\Siteler\Quuzy\keyb\libs\instagram" />
+      <recent name="C:\wamp64\www\Siteler\Quuzy\keyb\libs\tiny-hyml-minifier" />
     </key>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -125,48 +504,128 @@
       <workItem from="1582545533830" duration="1280000" />
       <workItem from="1582633455262" duration="624000" />
       <workItem from="1582642721811" duration="619000" />
+      <workItem from="1582878257735" duration="334000" />
+      <workItem from="1583416983580" duration="359000" />
+      <workItem from="1583417524926" duration="19000" />
+      <workItem from="1583417644420" duration="7000" />
+      <workItem from="1583417662957" duration="3561000" />
+      <workItem from="1584971365533" duration="1722000" />
+      <workItem from="1584981991956" duration="3545000" />
+      <workItem from="1584988383029" duration="684000" />
+      <workItem from="1584998269387" duration="13011000" />
+      <workItem from="1585175499330" duration="4278000" />
+      <workItem from="1585183096147" duration="527000" />
+      <workItem from="1585184967275" duration="2081000" />
+      <workItem from="1585227962467" duration="6578000" />
+      <workItem from="1585240919979" duration="757000" />
+      <workItem from="1585402326396" duration="627000" />
+      <workItem from="1585819317827" duration="1281000" />
+      <workItem from="1585821499227" duration="840000" />
+      <workItem from="1586031198020" duration="1027000" />
+      <workItem from="1586187184903" duration="698000" />
+      <workItem from="1586200858883" duration="159000" />
+      <workItem from="1586355564532" duration="113000" />
+      <workItem from="1586364000109" duration="1206000" />
+      <workItem from="1586696945538" duration="330000" />
+      <workItem from="1587303530882" duration="7989000" />
+      <workItem from="1587928009654" duration="12305000" />
+      <workItem from="1588522085368" duration="144000" />
+      <workItem from="1588522355144" duration="254000" />
+      <workItem from="1588605982419" duration="615000" />
+      <workItem from="1588623530129" duration="7119000" />
+      <workItem from="1588635352458" duration="1000" />
+      <workItem from="1588691566405" duration="1061000" />
+      <workItem from="1588984840227" duration="398000" />
+      <workItem from="1589654226265" duration="361000" />
+      <workItem from="1590343123057" duration="6320000" />
+      <workItem from="1590353634722" duration="9340000" />
+      <workItem from="1590408822765" duration="1028000" />
+      <workItem from="1591396259443" duration="132000" />
+      <workItem from="1591397002724" duration="10877000" />
+      <workItem from="1591446680814" duration="806000" />
+      <workItem from="1591487368377" duration="6463000" />
+      <workItem from="1591739425829" duration="2822000" />
+      <workItem from="1592579462000" duration="569000" />
+      <workItem from="1592680271781" duration="199000" />
+      <workItem from="1593006473137" duration="119000" />
+      <workItem from="1593030170098" duration="6360000" />
+      <workItem from="1594211294404" duration="580000" />
+      <workItem from="1598135668917" duration="616000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="585" y="199" key="#Deployment" timestamp="1581173455043">
+    <state x="585" y="199" key="#Deployment" timestamp="1587928033295">
       <screen x="66" y="0" width="1854" height="1080" />
     </state>
-    <state x="585" y="199" key="#Deployment/66.0.1854.1080/1982.2.1858.1080@66.0.1854.1080" timestamp="1581173455043" />
-    <state x="756" y="343" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1581074129270">
+    <state x="582" y="199" key="#Deployment/62.0.1858.1080/1920.0.1920.1040@62.0.1858.1080" timestamp="1587303563023" />
+    <state x="585" y="199" key="#Deployment/66.0.1854.1080/1920.0.1920.1040@66.0.1854.1080" timestamp="1587928033295" />
+    <state x="569" y="186" key="#SSH_Configurations" timestamp="1587928031738">
       <screen x="66" y="0" width="1854" height="1080" />
     </state>
-    <state x="756" y="343" key="#com.intellij.fileTypes.FileTypeChooser/66.0.1854.1080/1982.2.1858.1080@66.0.1854.1080" timestamp="1581074129270" />
-    <state x="1488" y="-11" width="1670" height="896" maximized="true" key="DirDiffDialog" timestamp="1582395929357">
-      <screen x="1982" y="2" width="1858" height="1080" />
+    <state x="566" y="186" key="#SSH_Configurations/62.0.1858.1080/1920.0.1920.1040@62.0.1858.1080" timestamp="1587303550647" />
+    <state x="569" y="186" key="#SSH_Configurations/66.0.1854.1080/1920.0.1920.1040@66.0.1854.1080" timestamp="1587928031738" />
+    <state x="753" y="343" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587311812138">
+      <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="1488" y="-11" width="1670" height="896" maximized="true" key="DirDiffDialog/66.0.1854.1080/1982.2.1858.1080@66.0.1854.1080" timestamp="1582395929357" />
-    <state x="827" y="464" key="NewPhpFileDialog" timestamp="1578337512798">
+    <state x="753" y="343" key="#com.intellij.fileTypes.FileTypeChooser/62.0.1858.1080/1920.0.1920.1040@62.0.1858.1080" timestamp="1587311812138" />
+    <state x="756" y="343" key="#com.intellij.fileTypes.FileTypeChooser/66.0.1854.1080/1982.2.1858.1080@66.0.1854.1080" timestamp="1585185502356" />
+    <state x="723" y="294" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1591405575992">
       <screen x="66" y="0" width="1854" height="1080" />
     </state>
-    <state x="827" y="464" key="NewPhpFileDialog/66.0.1854.1080/1982.2.1858.1080@66.0.1854.1080" timestamp="1578337512798" />
-    <state x="585" y="273" key="Vcs.Push.Dialog.v2" timestamp="1578334219005">
+    <state x="723" y="294" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/66.0.1854.1080/1920.0.1920.1040@66.0.1854.1080" timestamp="1591405575992" />
+    <state x="827" y="463" key="NewPhpFileDialog" timestamp="1591404358220">
       <screen x="66" y="0" width="1854" height="1080" />
     </state>
-    <state x="585" y="273" key="Vcs.Push.Dialog.v2/66.0.1854.1080/1982.2.1858.1080@66.0.1854.1080" timestamp="1578334219005" />
-    <state x="638" y="155" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1578337681250">
+    <state x="825" y="463" key="NewPhpFileDialog/62.0.1858.1080/1920.0.1920.1040@62.0.1858.1080" timestamp="1587304405076" />
+    <state x="827" y="463" key="NewPhpFileDialog/66.0.1854.1080/1920.0.1920.1040@66.0.1854.1080" timestamp="1591404358220" />
+    <state x="585" y="272" key="Vcs.Push.Dialog.v2" timestamp="1590350181599">
       <screen x="66" y="0" width="1854" height="1080" />
     </state>
-    <state x="638" y="155" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/66.0.1854.1080/1982.2.1858.1080@66.0.1854.1080" timestamp="1578337681250" />
-    <state x="649" y="250" key="run.anything.popup" timestamp="1580845972474">
+    <state x="585" y="272" key="Vcs.Push.Dialog.v2/66.0.1854.1080/1920.0.1920.1040@66.0.1854.1080" timestamp="1590350181599" />
+    <state x="625" y="307" key="publish.login" timestamp="1593006533026">
+      <screen x="67" y="0" width="1299" height="768" />
+    </state>
+    <state x="860" y="432" key="publish.login/62.0.1858.1080/1920.0.1920.1040@62.0.1858.1080" timestamp="1587303542204" />
+    <state x="625" y="307" key="publish.login/67.0.1299.768@67.0.1299.768" timestamp="1593006533026" />
+    <state x="802" y="407" key="webDeployment.PermissionsDialog" timestamp="1590357643766">
       <screen x="66" y="0" width="1854" height="1080" />
     </state>
-    <state x="649" y="250" key="run.anything.popup/66.0.1854.1080/1982.2.1858.1080@66.0.1854.1080" timestamp="1580845972474" />
-    <state x="656" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1581014990741">
+    <state x="789" y="278" width="407" height="539" key="webDeployment.PermissionsDialog.Tabs" timestamp="1590357640152">
       <screen x="66" y="0" width="1854" height="1080" />
     </state>
-    <state x="656" y="235" width="672" height="678" key="search.everywhere.popup/66.0.1854.1080/1982.2.1858.1080@66.0.1854.1080" timestamp="1581014990741" />
-    <state x="789" y="278" key="webDeployment.PermissionsDialog.Tabs" timestamp="1581109530640">
-      <screen x="66" y="0" width="1854" height="1080" />
-    </state>
-    <state x="789" y="278" key="webDeployment.PermissionsDialog.Tabs/66.0.1854.1080/1982.2.1858.1080@66.0.1854.1080" timestamp="1581109530640" />
+    <state x="787" y="278" key="webDeployment.PermissionsDialog.Tabs/62.0.1858.1080/1920.0.1920.1040@62.0.1858.1080" timestamp="1587310933970" />
+    <state x="789" y="278" width="407" height="539" key="webDeployment.PermissionsDialog.Tabs/66.0.1854.1080/1920.0.1920.1040@66.0.1854.1080" timestamp="1590357640152" />
+    <state x="789" y="278" key="webDeployment.PermissionsDialog.Tabs/66.0.1854.1080/1982.2.1858.1080@66.0.1854.1080" timestamp="1585185467028" />
+    <state x="802" y="407" key="webDeployment.PermissionsDialog/66.0.1854.1080/1920.0.1920.1040@66.0.1854.1080" timestamp="1590357643766" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/img-old.php</url>
+          <line>23</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

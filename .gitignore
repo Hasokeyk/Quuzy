@@ -1,0 +1,8 @@
+*.xml
+.idea/
+_config.yml
+cache/cookie/user.hsn
+keyb/vendor/
+.git
+.github
+.well-known

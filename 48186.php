@@ -22,10 +22,23 @@
         $mysqli->set_charset("utf8mb4");
     }
     //VERİTABANI
-
+	
+	$instUsername = 'home.decor.pin';
+	$instPassword = 'hasan.hayati@KODLA20';
+	
+	$yedekKodlar = [
+		'09851234',
+		'71254098',
+		'72490638',
+		'16593248',
+		'41389065',
+	];
+	
     define('ROOT',(__DIR__));
     define('KEYBDIR',ROOT.'/keyb/');
     define('THEMENAME','quuzy');
     define('THEMEDIR',ROOT.'/themes/'.THEMENAME.'/');
-    define('THEMEPATH',$_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].'/themes/'.THEMENAME.'/');
-    define('SITENAME',$_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST']);
+    define('THEMEPATH','https://quuzy.com/themes/'.THEMENAME.'/');
+    define('SITENAME','https://quuzy.com');
+
+    require KEYBDIR.'libs/instagram/Instagram.php';

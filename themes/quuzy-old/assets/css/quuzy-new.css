@@ -1,0 +1,263 @@
+body{min-width: 320px;height: 100%;margin: 0px;padding: 0px;background: #f1f1f1;font: 14px/16px Quicksand;box-sizing: border-box;overflow-y: scroll;}
+html{width: 100%;height: 100%;margin: 0px;padding: 0px;}
+ul, li, p, h1, h2, h3, h4, h5, h6 {list-style: none;margin: 0px;padding: 0px;}
+a{text-decoration: none;}
+a:hover {text-decoration: none;}
+*:focus {outline: none;}
+*{box-sizing: border-box}
+
+:root{
+    --logo-width:100px;
+}
+
+/* HEADER */
+.header{
+    float: left;
+    width: 100%;
+    padding: 25px 50px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.header .logo{
+    float: left;
+    width: var(--logo-width);
+    display: flex;
+}
+.header .logo img{
+    float: left;
+    width: 100%;
+    margin: auto;
+}
+.header .menu{
+    float: left;
+    width: calc(100% - var(--logo-width));
+}
+.header .menu ul{
+    float: left;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.header .menu ul li{
+    float: left;
+}
+.header .menu ul li a{
+    float: left;
+    padding: 20px;
+}
+.header .menu ul li a i{
+    float: left;
+    color: #101010;
+    font-size: 32px;
+}
+/* HEADER */
+
+/* USERS PROFIL LİST */
+.users-profile-list{
+    float: left;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.users-profile-list .user{
+    float: left;
+    width: calc(96px - -11px);
+    margin: 7px;
+    color: #101010;
+}
+.users-profile-list .user .user-circle{
+    /* float: left; */
+    width: 80px;
+    height: 80px;
+    border: double 2px transparent;
+    border-radius: 500px;
+    background-image: linear-gradient(white, white), radial-gradient(circle at top left, #a0089e,#ff003b);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    margin: auto;
+}
+.users-profile-list .user .user-circle img{
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    border-radius: 500px;
+    margin: 5px;
+    object-fit: cover;
+    overflow: hidden;
+}
+.users-profile-list .user .user-name{
+    float: left;
+    width: 100%;
+    text-align: center;
+    margin-top: 8px;
+    font-weight: 600;
+}
+/* USERS PROFIL LİST */
+
+/* POST LİST */
+.users-post-list{
+    float: left;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.users-post-list .posts{
+    width: 100%;
+    text-align: center;
+    margin: 20px auto;
+    display: grid;
+    grid-gap: 3em;
+    grid-template-columns: repeat( auto-fill, minmax( 300px, 1fr) );
+    /* grid-column-gap: 73px; */
+    /* grid-row-gap: 3em; */
+}
+.users-post-list .posts .post{
+    float: left;
+    width: 300px;
+    height: auto;
+    margin: auto;
+    background: #fff;
+    box-shadow: 0px 4px 14px 1px #eee;
+    border-radius: 10px;
+    position: relative;
+}
+.users-post-list .posts .post.play.video:before{
+    content: '\f04b';
+    position: absolute;
+    top: calc(50% - 50px);
+    left: calc(50% - 30px);
+    color: #fff;
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+    font-size: 30px;
+    background: #00000080;
+    float: left;
+    width: 60px;
+    height: 60px;
+    border-radius: 500px;
+    line-height: 59px;
+    text-indent: 7px;
+    cursor: pointer;
+}
+.users-post-list .posts .post .post-img video{
+    float: left;
+    width: 100%;
+    height: 100%;
+    /* max-width: 300px; */
+    max-height: 300px;
+    /* min-width: 300px; */
+    /* min-height: 300px; */
+    object-fit: cover;
+}
+.users-post-list .posts .post .post-img{
+    float: left;
+    width: 100%;
+    height: 100%;
+    max-height: 300px;
+}
+.users-post-list .posts .post .post-img a{
+    float: left;
+    width: 100%;
+    height: 100%;
+}
+.users-post-list .posts .post .post-img a img{
+    float: left;
+    width: 100%;
+    height: 300px;
+    display: inline-block;
+    object-fit: cover;
+    object-position: center;
+    /* border-radius: 20px;
+}
+.home .home-content .last-posts .posts .post .post-info{
+    float: left;
+    width: 100%;
+}
+.home .home-content .last-posts .posts .post .post-info ul{
+    float: right;
+    /* width: 100%; */
+    /* padding: 20px 0; */
+    overflow: hidden;
+}
+.users-post-list .posts .post .post-info{
+    float: left;
+    width: 100%;
+    /* margin-top: 15px; */
+    padding: 10px;
+    box-sizing: border-box;
+}
+.users-post-list .posts .post .post-info .post-profile{
+    float: left;
+    width: 50px;
+}
+.users-post-list .posts .post .post-info .post-profile .profile-pic{
+    float: left;
+    width: 100%;
+}
+.users-post-list .posts .post .post-info .post-profile .profile-pic img{
+    float: left;
+    width: 100%;
+    border-radius: 500px;
+}
+.users-post-list .posts .post .post-info .post-info-detail{
+    float: left;
+    width: 100%;
+}
+.users-post-list .posts .post .post-info .post-info-detail ul{
+    float: left;
+    width: 100%;
+}
+.users-post-list .posts .post .post-info .post-info-detail ul li{
+    float: left;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    margin-top: 2px;
+}
+.users-post-list .posts .post .post-info .post-info-detail ul li:first-child{
+    margin-left:0;
+}
+.users-post-list .posts .post .post-info .post-info-detail ul li .icon{
+    /* float: left; */
+    /* width: 50%; */
+    font-size: 20px;
+}
+.users-post-list .posts .post .post-info .post-info-detail ul li .icon i{
+    color: #E91E63;
+}
+.users-post-list .posts .post .post-info .post-info-detail ul li .text{
+    margin: 5px 0px 5px 5px;
+    font-size: 15px;
+    font-weight: bold;
+}
+.users-post-list .posts .post .post-info .post-info-detail ul li.download-btn{
+    background: #e91e63;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-top: -3px;
+    float: right;
+    cursor: pointer;
+}
+.users-post-list .posts .post .post-info .post-info-detail ul li.download-btn .icon i{
+    color:#fff;
+}
+.users-post-list .posts .post .post-info .post-info-detail ul li.download-btn a{
+    color: #fff;
+}
+/* POST LİST */
+
+/* OTHER */
+.content{
+    width: 80%;
+    margin: auto;
+    float: none;
+}
+.ads{
+    float: left;
+    width: 100%;
+    margin: 15px auto;
+    text-align: center;
+}
+/* OTHER */

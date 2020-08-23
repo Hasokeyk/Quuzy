@@ -1,27 +1,27 @@
 <?php
     require THEMEDIR."header.php";
 
-    $userInfo = $mysqli->query("SELECT * FROM users WHERE username = '".$urlParse['subFolder']."'")->fetch_assoc();
-    $adsLimit = 4;
+    $userInfo = $mysqli->query("SELECT * FROM users WHERE username = '".$urlParse['folder']."'")->fetch_assoc();
+    $adsLimit = 8;
+
+    $cdn = '//';
+    
+    if($userInfo['private'] == '1'){
+    	$imgLink = $cdn.'quuzy.com/img/p/p/';
+    }else{
+	    $imgLink = $cdn.'quuzy.com/img/p/';
+    }
 
 ?>
 
-<div class="profile-detail">
+<section class="profile-detail">
 
     <div class="profile-info">
 
         <div class="profile-pic">
             <div class="profile-circle">
-                <img src="/img/u/<?=$userInfo['username']?>/" alt="<?=$userInfo['fullName']?>">
+                <img src="//quuzy.com/img/u/<?=$userInfo['username']?>/?f=auto" alt="<?=$userInfo['fullName']?>">
             </div>
-        </div>
-
-        <div class="profile-fullName">
-            <?=$userInfo['fullName']?>
-        </div>
-
-        <div class="profile-username">
-            @<?=$userInfo['username']?>
         </div>
 
         <div class="profile-istatistic">
@@ -43,80 +43,59 @@
 
         </div>
 
-        <div class="profile-menu">
+	    <div class="profile-fullName">
+		    <?=$userInfo['fullName']?>
+	    </div>
 
-            <ul>
-                <li>
-                    <a href="/">
-                        <div class="icon">
-                            <i class="fad fa-home-alt"></i>
-                        </div>
-                        <div class="text">
-                            Home
-                        </div>
-                    </a>
-                </li>
-                <li class="active">
-                    <div class="icon">
-                        <i class="fad fa-image"></i>
-                    </div>
-                    <div class="text">
-                        Feed
-                    </div>
-                </li>
-                <li>
-                    <div class="icon">
-                        <i class="fad fa-portrait"></i>
-                    </div>
-                    <div class="text">
-                        Stories
-                    </div>
-                </li>
-                <li>
-                    <div class="icon">
-                        <i class="fad fa-tv-retro"></i>
-                    </div>
-                    <div class="text">
-                        IGTV
-                    </div>
-                </li>
-            </ul>
+	    <div class="profile-username">
+		    @<?=$userInfo['username']?>
+	    </div>
 
-        </div>
+	    <div class="profile-username-bio">
+		    <?=$userInfo['bio']?>
+	    </div>
+
+	    <div class="ads">
+		    <!-- Quuzy - Esnek -->
+		    <ins class="adsbygoogle"
+		         style="display:block"
+		         data-ad-client="ca-pub-9896875941850273"
+		         data-ad-slot="5702828256"
+		         data-ad-format="auto"
+		         data-full-width-responsive="true"></ins>
+		    <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+		    </script>
+	    </div>
 
     </div>
 
+	<div class="ads">
+		<!-- Quuzy - Sidebar -->
+		<ins class="adsbygoogle"
+		     style="display:inline-block;width:728px;height:90px"
+		     data-ad-client="ca-pub-9896875941850273"
+		     data-ad-slot="3060216022"></ins>
+		<script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</div>
+
     <div class="profile-content">
 
-        <!--USER PROFILES-->
-        <div class="last-user-profiles">
-            <h1>Similar Instagram Profiles</h1>
-            <div class="users">
-			    <?php
-				    $users = $mysqli->query("SELECT * FROM users ORDER BY RAND() LIMIT 15");
-				    $similarProfil = [];
-				    if($users->num_rows > 0){
-					    while($user = $users->fetch_assoc()){
-						    $similarProfil[] = $user;
-                    ?>
-                    <a href="/instagram/<?=$user['username']?>/" class="user">
-                        <div class="user-circle">
-                            <img src="https://quuzy.com/img/u/<?=$user['username']?>/" alt="<?=$user['fullName']?>">
-                        </div>
-                    </a>
-                    <?php
-					    }
-				    }
-			    ?>
-            </div>
-        </div>
-        <!--USER PROFILES-->
-
         <div class="profile-posts">
-            <h1><?=$userInfo['fullName']??$userInfo['username']?>'s Posts</h1>
+
+            <?php
+                if($userInfo['private'] == '1'){
+            ?>
+            <div class="alert alert-danger">This profile is private. The contents will be loaded within 24 hours. Please visit this page again.</div>
+            <?php
+                }
+            ?>
+
             <div class="posts">
             <?php
-                $posts = $mysqli->query("SELECT * FROM userposts WHERE username='".$urlParse['subFolder']."' ORDER BY id DESC");
+                $posts = $mysqli->query("SELECT * FROM userposts WHERE username='".$urlParse['folder']."' ORDER BY id ASC LIMIT 10");
                 if($posts->num_rows > 0){
                     $ads = 0;
                     while($post = $posts->fetch_assoc()){
@@ -126,13 +105,13 @@
                         <?php
                             if($post['type'] == 'photo'){
                         ?>
-                        <a href="/img/p/<?=$post['shortcode']?>/" data-fancybox="gallery">
-                            <img src="/img/p/<?=$post['shortcode']?>/" alt="<?=$post['description']?>"/>
+                        <a href="<?=$imgLink?><?=$post['shortcode']?>/" data-fancybox="gallery">
+                            <img src="<?=$imgLink?><?=$post['shortcode']?>/" alt="<?=$post['description']?>"/>
                         </a>
                         <?php
                             }else{
                         ?>
-                        <img src="/img/p/<?=$post['shortcode']?>/" alt="<?=$post['description']?>"/>
+                        <img src="<?=$imgLink?><?=$post['shortcode']?>/" alt="<?=$post['description']?>"/>
                         <?php
                             }
                         ?>
@@ -154,51 +133,30 @@
                                     <div class="text"><?=thousandsCurrencyFormat($post['commentCount'])?></div>
                                 </li>
                                 <li class="download-btn">
-                                    <div class="icon"><i class="fas fa-download"></i></div>
-                                    <div class="text"><a href="/img/p/<?=$post['shortcode']?>/" download="<?=$post['shortcode']?>.png">Download</a></div>
+                                    <div class="icon"><a href="<?=$imgLink?><?=$post['shortcode']?>/" download="<?=$post['shortcode']?>.png"><i class="fas fa-download"></i></a></div>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
             <?php
-                        if($ads % 6 == 0 and $ads <= $adsLimit){
+                        if($ads % $adsLimit == 0){
             ?>
                 <div class="post ads">
                     <div class="post-img">
-                        <!-- Profile Detay - 300*300 -->
-                        <ins class="adsbygoogle"
-                            style="display:inline-block;width:300px;height:300px"
-                            data-ad-client="ca-pub-9896875941850273"
-                            data-ad-slot="6237119990"></ins>
-                        <script>
+	                    <!-- Profile Detay - 300*300 -->
+	                    <ins class="adsbygoogle"
+	                         style="display:inline-block;width:300px;height:300px"
+	                         data-ad-client="ca-pub-9896875941850273"
+	                         data-ad-slot="6237119990"></ins>
+	                    <script>
                             (adsbygoogle = window.adsbygoogle || []).push({});
-                        </script>
-                    </div>
-                    <div class="post-desc" style="display:none">
-                        <p>
-                        <?=linker($post['description'])?>
-                        </p>
-                    </div>
-                    <div class="post-info">
-                        <div class="post-info-detail">
-                            <ul>
-                                <li>
-                                    <div class="icon"><i class="fas fa-heart"></i></div>
-                                    <div class="text"><?=thousandsCurrencyFormat(rand(111,9999))?></div>
-                                </li>
-                                <li>
-                                    <div class="icon"><i class="fal fa-comment"></i></div>
-                                    <div class="text"><?=thousandsCurrencyFormat(rand(111,9999))?></div>
-                                </li>
-                            </ul>
-                        </div>
+	                    </script>
                     </div>
                 </div>
             <?php
                         }
                         $ads++;
-	                    $adsLimit++;
                     }
                 }
             ?>
@@ -207,7 +165,7 @@
 
     </div>
 
-</div>
+</section>
 
 <?php 
     require THEMEDIR."footer.php";

@@ -44,22 +44,45 @@
     <meta name="msapplication-TileImage" content="<?=THEMEPATH?>assets/img/favicons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
-    <!--<script src="//quuzy.com/pwabuilder-sw-register.js"></script>-->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="<?=THEMEPATH?>assets/js/jquery.fancybox.min.js"></script>
-    <script src="<?=THEMEPATH?>assets/js/quuzy.js"></script>
+    <script src="<?=THEMEPATH?>assets/js/jquery-3.4.1.min.js" defer></script>
+    <script src="<?=THEMEPATH?>assets/js/jquery.fancybox.min.js" defer></script>
+    <script src="<?=THEMEPATH?>assets/js/jquery.adblock-detector.js" defer></script>
+    <script src="<?=THEMEPATH?>assets/js/sweetalert2.min.js" defer></script>
+    <script src="<?=THEMEPATH?>assets/js/jquery.lazy.min.js" defer></script>
+    <script src="<?=THEMEPATH?>assets/js/quuzy.js?<?=time()?>" defer></script>
 
+    <noscript id="deferred-styles">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand&display=auto" rel="stylesheet">
+        <link href="<?=THEMEPATH?>assets/css/fontawesome-all.min.css" rel="stylesheet">
+        <link href="<?=THEMEPATH?>assets/css/jquery.fancybox.min.css" rel="stylesheet">
+        <link href="<?=THEMEPATH?>assets/css/sweetalert2.min.css" rel="stylesheet">
+    </noscript>
 
-    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=auto" rel="stylesheet">
-    <link href="<?=THEMEPATH?>assets/css/fontawesome-all.min.css" rel="stylesheet">
-    <link href="<?=THEMEPATH?>assets/css/jquery.fancybox.min.css" rel="stylesheet">
-    <link href="<?=THEMEPATH?>assets/css/quuzy.css" rel="stylesheet">
+    <link href="<?=THEMEPATH?>assets/css/quuzy.css" rel="stylesheet" defer>
+    <link href="<?=THEMEPATH?>assets/css/quuzy-new.css" rel="stylesheet" defer>
+
+    <script>
+        var loadDeferredStyles = function() {
+            var addStylesNode = document.getElementById("deferred-styles");
+            var replacement = document.createElement("div");
+            replacement.innerHTML = addStylesNode.textContent;
+            document.body.appendChild(replacement)
+            addStylesNode.parentElement.removeChild(addStylesNode);
+        };
+        var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+            window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+        if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+        else window.addEventListener('load', loadDeferredStyles);
+    </script>
+
     <?php
         $urlParse = $this->urlParse();
 
         $adsBlock = [
-        "lovelynicocoa",
-        "camsoda",
+            "lovelynicocoa",
+            "camsoda",
+            "teelalaroux",
+            "vivianarobba",
         ];
 
         if(in_array($urlParse['subFolder'],$adsBlock)){
@@ -68,17 +91,17 @@
         //print_r($urlParse);
     ?>
 
-    <script data-ad-client="ca-pub-9896875941850273" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
-    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
-    <script>
-		window.googletag = window.googletag || {cmd: []};
-		googletag.cmd.push(function() {
-			googletag.defineSlot('/21841614389/Quuzy', [300, 300], 'div-gpt-ad-1581012875915-0').addService(googletag.pubads());
-			googletag.pubads().enableSingleRequest();
-			googletag.enableServices();
-		});
-    </script>
+	<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+	<script>
+        window.googletag = window.googletag || {cmd: []};
+        googletag.cmd.push(function() {
+            googletag.defineOutOfPageSlot('/21841614389/Quuzy', 'div-gpt-ad-1591495923445-0').addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+	</script>
 
     <meta name="p:domain_verify" content="172b7b60e24f43629c0ab4992e6ad2f7"/>
 
@@ -127,5 +150,21 @@
             }
         }
     </script>
+
+    <script type="text/javascript" src="//client.seldos.com.tr/seldosjs?ID=seldosf650e1581f34db01710acd53101807ef" defer></script>
+
 </head>
 <body data-username="<?=$urlParse['subFolder']??'quuzy'?>" data-page-type="<?=$this->page?>">
+
+	<header class="header">
+		<a href="/" class="logo">
+			<img src="<?=THEMEPATH?>/assets/img/quuzy-logo.png" alt="Quuzy - Best Instagram Profil Viewer">
+		</a>
+		<div class="menu">
+			<ul>
+				<li><a href="/"><i class="fal fa-home"></i></a></li>
+				<li><a href="/last-posts/"><i class="fal fa-image"></i></a></li>
+				<li><a href="/"><i class="fal fa-user"></i></a></li>
+			</ul>
+		</div>
+	</header>

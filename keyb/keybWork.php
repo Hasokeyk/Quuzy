@@ -6,7 +6,9 @@
         hasanhasokeyk@hotmail.com
     */
 
-    class keybWork{
+	use function GuzzleHttp\Promise\exception_for;
+
+	class keybWork{
 
         public $page = 'home';
         public $pageInfo = null;
@@ -27,7 +29,7 @@
             }else if(substr($urlParse['folder'],0,7) == 'sitemap'){
                 require THEMEDIR.'sitemap.php';
                 exit;
-            }else if($urlParse['fullLink'] == '/'){
+            }else if($urlParse['data']['path'] == '/'){
 	            $this->pageInfo['template'] = 'home';
                 goto nonControl;
             }else if(!isset($urlParse['subFolder']) and empty($urlParse['subFolder'])){
@@ -58,17 +60,17 @@
 				if($this->page != '404'){
 					$htmlName = md5($_SERVER['REQUEST_URI']).'.html';
 					if(file_exists(ROOT.'/cache/html/'.$htmlName)){
-						echo file_get_contents(ROOT.'/cache/html/'.$htmlName);
-						exit;
+						$html = file_get_contents(ROOT.'/cache/html/'.$htmlName);
 					}else{
 						ob_start();
 						require THEMEDIR.$this->page.'.php';
 						$html = ob_get_contents();
 						ob_clean();
 						file_put_contents(ROOT.'/cache/html/'.$htmlName, $html);
-						echo $html;
-						exit;
 					}
+
+                    echo TinyMinify::html($html);
+
 				}else{
 					require THEMEDIR.$this->page.'.php';
 				}
@@ -128,12 +130,14 @@
             $title = $this->pageInfo['title']??$title;
 
             if($this->pageInfo['template'] == 'profile-detail'){
+
                 $user = $mysqli->query("SELECT * FROM users WHERE username = '".$this->pageInfo['url']."'");
                 if($user->num_rows > 0){
                     $userInfo = $user->fetch_assoc();
                 }
 
                 $seo = [
+                    '-{USERBIO}-' => $userInfo['bio']??'22',
                     '-{USERNAME}-' => $userInfo['username'],
                     '-{USERFULLNAME}-' => $userInfo['fullName'],
                     '-{SITENAME}-' => 'Quuzy',
@@ -163,12 +167,14 @@
             $title = $this->pageInfo['title']??$title;
 
             if($this->pageInfo['template'] == 'profile-detail'){
+
                 $user = $mysqli->query("SELECT * FROM users WHERE username = '".$this->pageInfo['url']."'");
                 if($user->num_rows > 0){
                     $userInfo = $user->fetch_assoc();
                 }
 
                 $seo = [
+                    '-{USERBIO}-' => $userInfo['bio']??'22',
                     '-{USERNAME}-' => $userInfo['username'],
                     '-{USERFULLNAME}-' => $userInfo['fullName'],
                     '-{SITENAME}-' => 'Quuzy',

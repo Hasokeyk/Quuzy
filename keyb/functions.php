@@ -25,37 +25,51 @@
             }
 
             $instaID        = $user->id;
+            $username       = $user->username;
             $followedCount  = $user->edge_followed_by->count;
             $followingCount = $user->edge_follow->count;
             $postsCount     = $user->edge_owner_to_timeline_media->count;
-            $fullName       = $user->full_name;
-            $biography      = $user->biography;
+            $fullName       = trim(htmlentities(addslashes($user->full_name)));
+            $biography      = trim(htmlentities(addslashes($user->biography)));
+            $verify         = $user->is_verified==true?'1':'0';
+            $private        = $user->is_private==true?'1':'0';
             $profilePic     = $user->profile_pic_url_hd;
 
             $ask = $mysqli->query("SELECT * FROM users WHERE username = '".$user->username."'");
             if($ask->num_rows == 0){
-                $sql = "INSERT INTO users SET instaID='".$instaID."',pintBoardID='0',fullName='".$fullName."',username='".$user->username."',followedCount='".$followedCount."',followingCount='".$followingCount."',postsCount='".$postsCount."'";
+                $sql = "INSERT INTO users SET private='".$private."',verify='".$verify."',bio='".$biography."',instaID='".$instaID."',pintBoardID='0',fullName='".$fullName."',username='".$user->username."',followedCount='".$followedCount."',followingCount='".$followingCount."',postsCount='".$postsCount."'";
                 $userSave = $mysqli->query($sql);
                 if($userSave){
 	                $sql = "INSERT INTO seolinks SET url='".$user->username."',fullLink='/instagram/".$user->username."',template='profile-detail',parentID='1',time='".time()."'";
                     $seoSave = $mysqli->query($sql);
                     if($userSave and $seoSave){
-                        return true;
+                        $result = true;
                     }else{
-                        return false;
+                        $result = false;
                     }
                 }else{
-	                return false;
+	                $result = false;
                 }
             }else{
-                $sql = "UPDATE users SET instaID='".$instaID."',pintBoardID='0',fullName='".$fullName."',followedCount='".$followedCount."',followingCount='".$followingCount."',postsCount='".$postsCount."' WHERE username='".$user->username."'";
+                $sql = "UPDATE users SET private='".$private."',verify='".$verify."',bio='".$biography."',instaID='".$instaID."',pintBoardID='0',fullName='".$fullName."',followedCount='".$followedCount."',followingCount='".$followingCount."',postsCount='".$postsCount."' WHERE username='".$user->username."'";
                 $update = $mysqli->query($sql);
                 if($update){
-                    return true;
+                    $result = true;
                 }else{
-                    return false;
+                    $result = false;
                 }
             }
+
+            if($private == '1'){
+            	$posts = followedUserPostList($username);
+            	if($posts === false){
+            		userFollow($instaID);
+	            }else{
+            		userPostSaveApi($username);
+	            }
+            }
+
+            return $result;
 
         }else{
             return false;
@@ -63,7 +77,46 @@
 
     }
 
-    function userPostSave($data = null,$type){
+    function userPostSaveApi($username){
+    	global $mysqli,$pinBot;
+
+	    if($username != null){
+
+            $ins = new Instagram();
+            $data = $ins->profile($username);
+
+
+            foreach($data->graphql->user->edge_owner_to_timeline_media as $p){
+
+                if(isset($p->image_versions2->candidates[0]->url) and !empty($p->image_versions2->candidates[0]->url)){
+                    $mediaID            = $p->id;
+                    $shortcode          = $p->code;
+                    $username           = $p->user->username;
+                    $postUrl            = $p->image_versions2->candidates[0]->url;
+                    $postDesc           = $p->caption->text??'';
+                    $postComment        = 0;
+                    $postLike           = 0;
+                    $isVideo            = 0;
+
+                    $ask = $mysqli->query("SELECT * FROM userposts WHERE shortcode = '".$shortcode."' AND username='".$username."'");
+                    if($ask->num_rows == 0){
+                        $sql = "INSERT INTO userposts SET url='".$postUrl."',commentCount='".$postComment."',likeCount='".$postLike."',shortcode='".$shortcode."',username='".$username."',description='".$postDesc."',type='".(($isVideo==1)?'video':'photo')."'";
+                        $save = $mysqli->query($sql);
+                    }else{
+                        $sql = "UPDATE userposts SET url='".$postUrl."',commentCount='".$postComment."',likeCount='".$postLike."',shortcode='".$shortcode."',username='".$username."',description='".$postDesc."',type='".(($isVideo==1)?'video':'photo')."' WHERE shortcode = '".$shortcode."' AND username='".$username."'";
+                        $update = $mysqli->query($sql);
+                    }
+
+                }
+            }
+
+	    }
+
+	    return false;
+
+    }
+
+    function userPostSave($data = null,$type='link'){
         global $mysqli,$pinBot;
 
         if($data != null){
@@ -74,18 +127,8 @@
                 $user = $data->user;
             }
 
-            //print_r($user);
-
             $username = $user->username;
             $posts = $user->edge_owner_to_timeline_media->edges;
-
-            //$boards = $pinBot->boards->forMe();
-            //foreach($boards as $b){
-            //    if($username == $b['name']){
-            //        $boardID = $b['id'];
-            //        break;
-            //    }
-            //}
 
             //PHOTO
             foreach($posts as $post){
@@ -100,10 +143,10 @@
 
                 $ask = $mysqli->query("SELECT * FROM userposts WHERE shortcode = '".$shortcode."' AND username='".$username."'");
                 if($ask->num_rows == 0){
-                    $sql = "INSERT INTO userposts SET commentCount='".$postComment."',likeCount='".$postLike."',shortcode='".$shortcode."',username='".$username."',description='".$postDesc."',type='".(($isVideo==1)?'video':'photo')."'";
+                    $sql = "INSERT INTO userposts SET url='".$postUrl."',commentCount='".$postComment."',likeCount='".$postLike."',shortcode='".$shortcode."',username='".$username."',description='".$postDesc."',type='".(($isVideo==1)?'video':'photo')."'";
                     $save = $mysqli->query($sql);
                 }else{
-                    $sql = "UPDATE userposts SET commentCount='".$postComment."',likeCount='".$postLike."',shortcode='".$shortcode."',username='".$username."',description='".$postDesc."',type='".(($isVideo==1)?'video':'photo')."' WHERE shortcode = '".$shortcode."' AND username='".$username."'";
+                    $sql = "UPDATE userposts SET url='".$postUrl."',commentCount='".$postComment."',likeCount='".$postLike."',shortcode='".$shortcode."',username='".$username."',description='".$postDesc."',type='".(($isVideo==1)?'video':'photo')."' WHERE shortcode = '".$shortcode."' AND username='".$username."'";
                     $update = $mysqli->query($sql);
                 }
 
@@ -113,6 +156,36 @@
             return true;
         }else{
             return false;
+        }
+
+    }
+
+    function userFollow($userID){
+
+        try {
+            $ins = new Instagram();
+            $profile = $ins->follow($userID);
+            return true;
+        }catch (Exception $err){
+            echo $err->getMessage();
+        }
+
+    }
+
+    function followedUserPostList($username){
+
+        try {
+            $ins = new Instagram();
+            $profile = $ins->profile($username);
+            $posts   = $profile->edge_owner_to_timeline_media->edges;
+
+            if(isset($posts[0])){
+                return $posts;
+            }else{
+                return false;
+            }
+        }catch (Exception $err){
+            echo $err->getMessage();
         }
 
     }
@@ -224,10 +297,35 @@
     
     function get_web_page($url){
 
+    	//$token = getCsrfToken(ROOT.'/cache/cookie/user.hsn');
+
+	    //$ip  = '1.1.1.1';
+	    //$token = getCsrfToken($html);
+	    $ip  = rand(1,255).'.'.rand(1,255).'.'.rand(1,255).'.'.rand(1,255);
+
+	    $header[0]  = "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9";
+	    //$header[0] .= "text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5";
+
+	    $header[] = "accept-encoding: gzip, deflate, br";
+	    //$header[] = 'cookie: ig_did='.$token['ig_did'].'; csrftoken='.$token['csrftoken'].'; mid='.$token['mid'].'; rur=PRN; urlgen="{\"'.$ip.'\": 12735}:1j9ru3:n1gIo-95YSVtN0zRcAGwjUp-kB4"';
+	    $header[] = "Cache-Control: max-age=0";
+	    $header[] = "Connection: keep-alive";
+	    $header[] = "Keep-Alive: 300";
+	    $header[] = "Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7";
+	    $header[] = "Accept-Language: en-us,en;q=0.5";
+	    $header[] = "Pragma: no-cache"; // browsers = blank
+	    //$header[] = "X_FORWARDED_FOR: " . $ip;
+	    //$header[] = "REMOTE_ADDR: " . $ip;
+	    //$header[] = "Referer: https://www.instagram.com/";
+	    //$header[] = "x-csrftoken: ".$token['csrftoken'];
+	    //$header[] = "Host: hayatikodla.com";
+	    //$header[] = "Origin: instagram.com";
+
         $options = array(
+	        CURLOPT_HTTPHEADER     => $header,     // return web page
             CURLOPT_RETURNTRANSFER => true,     // return web page
             CURLOPT_HEADER         => true,     //return headers in addition to content
-            CURLOPT_FOLLOWLOCATION => true,     // follow redirects
+            CURLOPT_FOLLOWLOCATION => false,     // follow redirects
             CURLOPT_ENCODING       => "",       // handle all encodings
             CURLOPT_AUTOREFERER    => true,     // set referer on redirect
             CURLOPT_CONNECTTIMEOUT => 120,      // timeout on connect
@@ -236,10 +334,11 @@
             CURLINFO_HEADER_OUT    => true,
             CURLOPT_SSL_VERIFYPEER => false,     // Validate SSL Cert
             CURLOPT_HTTP_VERSION   => CURL_HTTP_VERSION_1_1,
-            CURLOPT_USERAGENT      => 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:54.0) Gecko/20100101 Firefox/54.0',
-            CURLOPT_COOKIESESSION  => true,
-            CURLOPT_COOKIEJAR      => ROOT.'/cache/cookie/user.hsn',
-	        CURLOPT_COOKIEFILE     => ROOT.'/cache/cookie/user.hsn'
+            CURLOPT_USERAGENT      => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36',
+            //CURLOPT_COOKIESESSION  => true,
+            //CURLOPT_COOKIEJAR      => ROOT.'/cache/cookie/user.hsn',
+	        //CURLOPT_COOKIEFILE     => ROOT.'/cache/cookie/user.hsn',
+	        CURLOPT_REFERER        => 'https://www.instagram.com/'
         );
 
 	    $ch      = curl_init( $url );
@@ -270,3 +369,23 @@
         return mb_strtolower(preg_replace('|@([a-zA-Z0-9_.]+)|is','<a href="//quuzy.com/instagram/$1/">@$1</a> ',$string),'utf8');
  
      }
+
+	function getCsrfToken($cookiePath = ''){
+
+    	if(file_exists($cookiePath)){
+
+    		echo $cookie = file_get_contents($cookiePath);
+
+    		preg_match('|mid(.*)|i', $cookie,$mid);
+    		preg_match('|csrftoken(.*)|i', $cookie,$csrftoken);
+    		preg_match('|ig_did(.*)|i', $cookie,$ig_did);
+
+    		return [
+    			'mid'       => trim($mid[1]),
+    			'csrftoken' => trim($csrftoken[1]),
+    			'ig_did'    => trim($ig_did[1]),
+		    ];
+	    }
+
+    	return false;
+	}
