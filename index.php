@@ -1,9 +1,17 @@
 <?php
+/**
+ * Front to the WordPress application. This file doesn't do anything, but loads
+ * wp-blog-header.php which does and tells WordPress to load the theme.
+ *
+ * @package WordPress
+ */
 
-    require "48186.php";
-    require ROOT.'/keyb/vendor/autoload.php';
-    require KEYBDIR.'functions.php';
-    require KEYBDIR."libs/tiny-hyml-minifier/TinyMinify.php";
-    require KEYBDIR."keybWork.php";
+/**
+ * Tells WordPress to load the WordPress theme and output it.
+ *
+ * @var bool
+ */
+define( 'WP_USE_THEMES', true );
 
-    $keybWork = new keybWork();
+/** Loads the WordPress Environment and Template */
+require __DIR__ . '/wp-blog-header.php';
