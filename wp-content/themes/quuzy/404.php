@@ -10,9 +10,11 @@
 	get_header();
 ?>
 
-	<div class="container">
+	<div class="container-404">
 
-
+		<div class="text">
+			Please Wait <div class="counter">0</div>
+		</div>
 
 	</div>
 

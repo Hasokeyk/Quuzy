@@ -68,7 +68,9 @@ $table_prefix = 'quzy_';
  * Tema ve eklenti geliştiricilerinin geliştirme aşamasında WP_DEBUG
  * kullanmalarını önemle tavsiye ederiz.
  */
-define('WP_DEBUG', true);
+define('WP_DEBUG', false);
+define('COMPRESS_SCRIPTS', true);
+define('COMPRESS_CSS', true);
 
 /* Hepsi bu kadar. Mutlu bloglamalar! */
 

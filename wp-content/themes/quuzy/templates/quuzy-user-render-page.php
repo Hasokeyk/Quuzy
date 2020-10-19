@@ -8,12 +8,8 @@
 <div class="sidebar">
 
 	<div class="logo">
-		<div class="icon">
-			<i class="fab fa-instagram"></i>
-		</div>
-		<div class="text">
-			Quuzy
-		</div>
+		<i class="fab fa-instagram"></i>
+		<a href="/">Quuzy</a>
 	</div>
 
 	<div class="profile-info">
@@ -37,19 +33,19 @@
 			<ul>
 				<li>
 					<div class="count">
-						<?php echo $user['edge_owner_to_timeline_media']['count']; ?>
+						<?php echo thousandsCurrencyFormat($user['edge_owner_to_timeline_media']['count']); ?>
 					</div>
 					<div class="text">Posts</div>
 				</li>
 				<li>
 					<div class="count">
-						<?php echo $user['edge_followed_by']['count']; ?>
+						<?php echo thousandsCurrencyFormat($user['edge_followed_by']['count']); ?>
 					</div>
 					<div class="text">Followers</div>
 				</li>
 				<li>
 					<div class="count">
-						<?php echo $user['edge_follow']['count']; ?>
+						<?php echo thousandsCurrencyFormat($user['edge_follow']['count']); ?>
 					</div>
 					<div class="text">Following</div>
 				</li>
@@ -101,67 +97,90 @@
 	</div>
 
 </div>
+<div class="container">
+	<div class="profile-content">
 
-<div class="profile-content">
-
-	<div class="profile-posts">
-		<h1><?php echo $user['full_name']; ?>'s Posts</h1>
-
-		<?php
-			if($user['is_private'] === 'true'){
-				?>
-				<div class="alert alert-danger">This profile is private. The contents will be loaded within 24 hours. Please visit this page again.</div>
-				<?php
-			}
-		?>
-
-		<div class="posts">
+		<div class="profile-posts">
+			<h1><?php echo $user['full_name']; ?>'s Posts</h1>
 
 			<?php
-				$posts = $user['edge_owner_to_timeline_media']['edges'];
-				foreach($posts as $post){
-
-					$post = $post['node'];
-
-					$postLink         = '/';
-					$postType         = $post['is_video'] == 'true'?'video':'photo';
-					$postShortCode    = $post['shorcode'];
-					$postLikeCount    = $post['edge_liked_by']['count'];
-					$postCommentCount = $post['edge_media_to_comment']['count'];
-					$postPicUrl       = $post['display_url'];
+				if($user['is_private'] === 'true'){
 					?>
-					<div class="post play <?php echo $postType; ?>" data-shortcode="<?php echo $postShortCode; ?>">
-						<div class="post-img">
-							<a href="<?php echo $postLink; ?>" data-fancybox="gallery">
-								<img src="<?php echo $postPicUrl; ?>" alt="Hasan">
-							</a>
-						</div>
-						<div class="post-info">
-							<div class="post-info-detail">
-								<ul>
-									<li>
-										<div class="icon"><i class="fas fa-heart"></i></div>
-										<div class="text"><?php echo $postLikeCount; ?></div>
-									</li>
-									<li>
-										<div class="icon"><i class="fal fa-comment"></i></div>
-										<div class="text"><?php echo $postCommentCount; ?></div>
-									</li>
-									<li class="download-btn">
-										<div class="icon"><i class="fas fa-download"></i></div>
-										<div class="text">
-											<a href="<?php echo $postLink; ?>" download="<?php echo $postShortCode; ?>.png">Download</a>
-										</div>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
+					<div class="alert alert-danger">This profile is private. The contents will be loaded within 24 hours. Please visit this page again.</div>
 					<?php
 				}
 			?>
 
-		</div>
-	</div>
+			<div class="posts">
 
+				<?php
+					$posts = $user['edge_owner_to_timeline_media']['edges'];
+					foreach($posts as $post){
+
+						$post = $post['node'];
+
+						$postLink         = '/';
+						$postType         = $post['is_video'] == 'true'?'video':'photo';
+						$postShortCode    = $post['shorcode'];
+						$postLikeCount    = $post['edge_liked_by']['count'];
+						$postCommentCount = $post['edge_media_to_comment']['count'];
+						$postPicUrl       = $post['display_url'];
+						?>
+						<div class="post play <?php echo $postType; ?>" data-shortcode="<?php echo $postShortCode; ?>">
+							<div class="post-img">
+								<a href="<?php echo $postLink; ?>" data-fancybox="gallery">
+									<img src="<?php echo $postPicUrl; ?>" alt="Hasan">
+								</a>
+							</div>
+							<div class="post-info">
+								<div class="post-info-detail">
+									<ul>
+										<li>
+											<div class="icon"><i class="fas fa-heart"></i></div>
+											<div class="text"><?php echo thousandsCurrencyFormat($postLikeCount); ?></div>
+										</li>
+										<li>
+											<div class="icon"><i class="fal fa-comment"></i></div>
+											<div class="text"><?php echo thousandsCurrencyFormat($postCommentCount); ?></div>
+										</li>
+										<li class="download-btn">
+											<div class="icon"><i class="fas fa-download"></i></div>
+											<div class="text">
+												<a href="<?php echo $postLink; ?>" download="<?php echo $postShortCode; ?>.png">Download</a>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<?php
+					}
+				?>
+
+			</div>
+		</div>
+
+	</div>
 </div>
+
+<?php
+
+	function thousandsCurrencyFormat($num) {
+
+		if($num>1000) {
+
+			$x = round($num);
+			$x_number_format = number_format($x);
+			$x_array = explode(',', $x_number_format);
+			$x_parts = array('k', 'm', 'b', 't');
+			$x_count_parts = count($x_array) - 1;
+			$x_display = $x;
+			$x_display = $x_array[0] . ((int) $x_array[1][0] !== 0 ? '.' . $x_array[1][0] : '');
+			$x_display .= $x_parts[$x_count_parts - 1];
+
+			return $x_display;
+
+		}
+
+		return $num;
+	}

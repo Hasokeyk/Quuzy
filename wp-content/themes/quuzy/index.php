@@ -8,12 +8,15 @@
 			$profiles = get_posts( [
 				'post_type'   => 'quuzy_users',
 				'post_status' => 'publish',
-				'posts_per_page' => 11,
+				'posts_per_page' => 12,
 			] );
 
 			if($profiles != null){
 		?>
 		<div class="profiles">
+			<div class="title">
+				Last Profile List
+			</div>
 			<?php
 				foreach($profiles as $profile){
 			?>
@@ -44,11 +47,10 @@
 			     data-ad-client="ca-pub-9896875941850273"
 			     data-ad-slot="3060216022"></ins>
 			<script>
-	            (adsbygoogle = window.adsbygoogle || []).push({});
+                (adsbygoogle = window.adsbygoogle || []).push({});
 			</script>
 		</div>
 		<!--ADS-->
-
 
 		<div class="profile-content">
 

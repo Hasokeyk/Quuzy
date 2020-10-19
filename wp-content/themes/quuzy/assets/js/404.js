@@ -1,5 +1,5 @@
 jQuery(function($){
-
+    
     var url = location.pathname;
     var username = url.replace('-user','').replace(/\//g,'');
     var userData;
@@ -8,20 +8,24 @@ jQuery(function($){
         userData = localStorage.getItem(username);
         renderUserPage(userData);
     }else{
-        getInstaUser(username).then(data => {
-            if(typeof data == 'object'){
-                userData = JSON.stringify(data);
-                localStorage.setItem(username,userData);
-                renderUserPage(userData);
-            }else{
-                return false;
-            }
-        });
+        try{
+            getInstaUser(username).then(data => {
+                if(typeof data == 'object'){
+                    userData = JSON.stringify(data);
+                    localStorage.setItem(username,userData);
+                    renderUserPage(userData);
+                }else{
+                    $('.container-404 .text').html('Sorry. User Not Found.');
+                    return false;
+                }
+            });
+        }catch(err){
+            console.log(3,err)
+        }
+        
     }
     
     function renderUserPage(json){
-    
-        console.log(json);
         
         var data = {
             'action': 'user_render',
@@ -42,10 +46,31 @@ jQuery(function($){
     
     async function getInstaUser(username){
         var API = 'https://www.instagram.com/'+username+'/?__a=1';
+        return fetch(API).then(data => {
+            if(data.status == 200){
+                return data.json().then(function (post) {
+                    return post;
+                })
+            }else{
+                return false;
+            }
+        }).catch(err => {
+            console.log(err);
+        })
+        /*
         return await $.getJSON(API,function(data){
             return data;
         }).fail(err => {
             return false;
         });
+        */
     }
+    
+    var count = 1;
+    
+    setTimeout(function(){
+        $('.container-404 .text .counter').text(count);
+        count++;
+        console.log(count)
+    },1000)
 })
